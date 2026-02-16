@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -8,7 +8,9 @@ export default function Home() {
       </div>
       <div className="py-10 text-2xl"> Hi, whats up?</div>
       <div className="max-w-2xl">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis minima pariatur vero tempore facilis eius aliquam asperiores ad quibusdam suscipit repellat, inventore explicabo delectus dolore voluptas vel qui! Error, saepe?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis minima pariatur vero
+        tempore facilis eius aliquam asperiores ad quibusdam suscipit repellat, inventore explicabo
+        delectus dolore voluptas vel qui! Error, saepe?
       </div>
     </div>
   );
