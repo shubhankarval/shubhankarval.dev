@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen font-sans max-w-300 mx-auto py-4 px-4">
+    <div className="mx-auto min-h-screen max-w-300 px-4 py-4 font-sans">
       <div className="flex justify-between">
         <Image src="/logo.svg" alt="Logo" width={45} height={45} />
       </div>
