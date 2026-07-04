@@ -16,7 +16,7 @@ const eslintConfig = defineConfig([
           singleQuote: true,
           printWidth: 100,
           trailingComma: 'es5',
-          endOfLine: 'lf',
+          endOfLine: 'auto',
         },
       ],
     },
