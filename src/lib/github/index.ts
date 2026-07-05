@@ -8,9 +8,10 @@ import { BOOTSTRAP_QUERY, buildStatsQuery } from './queries';
 
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
 
 const githubGraphQL = createGraphQLClient({
-  endpoint: 'https://api.github.com/graphql',
+  endpoint: GITHUB_GRAPHQL_ENDPOINT,
   headers: {
     Authorization: `Bearer ${GITHUB_TOKEN}`,
   },
@@ -26,8 +27,8 @@ const githubGraphQL = createGraphQLClient({
  */
 export async function getGithubStats(): Promise<GithubStats> {
   'use cache';
-  cacheLife('github');
-  cacheTag('github-stats');
+  cacheLife('hours');
+  cacheTag('github');
 
   const login = GITHUB_USERNAME;
   if (!login) throw new Error('Missing GITHUB_USERNAME environment variable.');
