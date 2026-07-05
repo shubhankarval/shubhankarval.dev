@@ -2,11 +2,20 @@ import 'server-only';
 import { cacheLife, cacheTag } from 'next/cache';
 
 import type { BootstrapResponse, GithubStats, StatsResponse } from '@/types/github';
-import { githubGraphQL } from './client';
+import { createGraphQLClient } from '@lib/graphql';
 import { mapResponse } from './mapper';
 import { BOOTSTRAP_QUERY, buildStatsQuery } from './queries';
 
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
+const githubGraphQL = createGraphQLClient({
+  endpoint: 'https://api.github.com/graphql',
+  headers: {
+    Authorization: `Bearer ${GITHUB_TOKEN}`,
+  },
+  label: 'GitHub',
+});
 
 /**
  * Cached Github stats - call directly in a Server Component.
