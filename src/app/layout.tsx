@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({
@@ -9,6 +9,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
+
+export const serifDisplay = Source_Serif_4({
+  variable: '--font-serif-display',
   subsets: ['latin'],
 });
 
@@ -25,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${serifDisplay.variable} antialiased`}
+      >
         <div className="mx-auto min-h-screen max-w-300 p-6 font-sans md:px-12 md:py-8 lg:px-24 xl:px-6">
           {children}
         </div>
