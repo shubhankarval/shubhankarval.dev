@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const serifDisplay = Source_Serif_4({
+const serifDisplay = Source_Serif_4({
   variable: '--font-serif-display',
   subsets: ['latin'],
 });
