@@ -1,68 +1,50 @@
-// Public shapes returned to the UI + raw GitHub GraphQL response shapes.
-
-// -- Public types
-export interface WindowedCount {
-  allTime: number;
-  last12Months: number;
-}
-
 export interface RecentCommit {
   repo: string; // "owner/name"
   message: string; // commit message headline
-  sha: string; // commit oid
+  sha: string; // commit id
   url: string; // Link to the commit on GitHub
-  committedAt: string; // ISO-8601
+  committedAt: string;
+  additions: number;
+  deletions: number;
 }
 
-export interface LanguageStat {
-  name: string;
-  color: string | null; // GitHub's Language color
-  size: number; // bytes across scanned repos
-  percentage: number; // 0-100 share of total scanned bytes
+export interface ContributionDay {
+  date: string; // YYYY-MM-DD
+  count: number;
+  level: 0 | 1 | 2 | 3 | 4; // GitHub's own quartile shading
+}
+
+export interface ContributionWeek {
+  days: ContributionDay[]; // Sunday-first; the current week is partial
 }
 
 export interface GithubStats {
-  recentCommits: RecentCommit[]; // 5 most recent commits, public repos
-  totalCommits: WindowedCount;
-  totalPullRequests: WindowedCount; // authored
-  totalPullRequestsMerged: WindowedCount;
-  totalPullRequestsReviewed: WindowedCount;
-  totalContributions: WindowedCount;
-  languages: LanguageStat[]; // with percentage each
-  fetchedAt: string; // ISO-8601 snapshot time
+  recentCommits: RecentCommit[]; // 8 most recent commits, public repos
+  contributionWeeks: ContributionWeek[]; // last 12 months, oldest week first
+  fetchedAt: string;
 }
 
-// -- GraphQL responses
-export interface ContribWindow {
-  totalCommitContributions: number;
-  totalPullRequestContributions: number;
-  totalPullRequestReviewContributions: number;
-  contributionCalendar: {
-    totalContributions: number;
-  };
+// --- GraphQL responses ---
+
+export type ContributionLevel =
+  'NONE' | 'FIRST_QUARTILE' | 'SECOND_QUARTILE' | 'THIRD_QUARTILE' | 'FOURTH_QUARTILE';
+
+interface ContributionCalendar {
+  weeks: {
+    contributionDays: {
+      date: string;
+      contributionCount: number;
+      contributionLevel: ContributionLevel;
+    }[];
+  }[];
 }
 
 export interface BootstrapResponse {
-  user: {
-    id: string;
-    contributionsCollection: {
-      contributionYears: number[];
-    };
-  } | null;
-}
-
-interface LanguageEdge {
-  size: number;
-  node: {
-    name: string;
-    color: string | null;
-  };
-}
-
-interface RepoLanguages {
-  languages: {
-    edges: LanguageEdge[];
-  } | null;
+  users:
+    | {
+        ids: string;
+      }[]
+    | null;
 }
 
 interface CommitHistoryNode {
@@ -70,6 +52,8 @@ interface CommitHistoryNode {
   messageHeadline: string;
   committedDate: string;
   url: string;
+  additions: number;
+  deletions: number;
 }
 
 interface RecentRepoNode {
@@ -78,22 +62,16 @@ interface RecentRepoNode {
     target: {
       history?: {
         nodes: CommitHistoryNode[];
-      };
+      } | null;
     } | null;
   } | null;
 }
 
 export interface StatUser {
-  totalPullRequests: { totalCount: number };
-  mergedPullRequests: { totalCount: number };
-  last12: ContribWindow;
-  repositories: { nodes: RepoLanguages[] };
+  last12: { contributionCalendar: ContributionCalendar };
   recentRepos: { nodes: RecentRepoNode[] };
-  // Per-year aliases: y2019, y2020, ... -> ContribWindow
-  [yearAlias: string]: unknown;
 }
 
 export interface StatsResponse {
   user: StatUser | null;
-  mergedLast12: { issueCount: number };
 }
