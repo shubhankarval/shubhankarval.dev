@@ -13,7 +13,7 @@ export default function Sidebar() {
         <div
           aria-hidden
           className="
-            size-13 rounded-full border border-line-strong
+            size-12 rounded-full border border-line-strong
             bg-[radial-gradient(circle_at_30%_25%,var(--accent),transparent_55%),linear-gradient(135deg,var(--bg-sunken),var(--line-strong))]
           "
         />
