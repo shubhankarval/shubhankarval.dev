@@ -1,12 +1,13 @@
 import 'server-only';
 
 import { cacheLife, cacheTag } from 'next/cache';
+
 import type { BootstrapResponse, GithubStats, StatsResponse } from '@/types/github';
 import { createGraphQLClient } from '@lib/graphql';
+import { profile } from '@content/profile';
 import { mapResponse } from './mapper';
 import { BOOTSTRAP_QUERY, STATS_QUERY } from './queries';
 
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
 
@@ -24,8 +25,7 @@ export async function getGithubStats(): Promise<GithubStats> {
   cacheLife('hours');
   cacheTag('github');
 
-  const login = GITHUB_USERNAME;
-  if (!login) throw new Error('Missing GITHUB_USERNAME environment variable.');
+  const login = profile.githubUsername;
 
   // 1) Get the node id, used to filter commit history down to this author.
   const boot = await githubGraphQL<BootstrapResponse>(BOOTSTRAP_QUERY, { login });
