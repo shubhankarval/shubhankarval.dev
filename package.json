@@ -24,7 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-better-tailwindcss": "^4.3.2",
+    "eslint-plugin-better-tailwindcss": "4.3.2",
     "eslint-plugin-prettier": "^5.5.5",
     "prettier": "3.9.4",
     "tailwindcss": "^4",
