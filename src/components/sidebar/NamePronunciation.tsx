@@ -20,10 +20,11 @@ export default function NamePronunciation({
 }: Readonly<NamePronunciationProps>) {
   const canSpeak = useSyncExternalStore(neverChanges, supportsSpeech, notOnServer);
   const [speaking, setSpeaking] = useState(false);
+  const firstName = name.split(' ')[0];
 
   const say = () => {
     speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(name);
+    const utterance = new SpeechSynthesisUtterance(firstName);
     utterance.rate = 0.85;
     utterance.onend = () => setSpeaking(false);
     utterance.onerror = () => setSpeaking(false);
@@ -39,7 +40,7 @@ export default function NamePronunciation({
         <button
           type="button"
           onClick={say}
-          aria-label={`Hear ${name} pronounced`}
+          aria-label={`Hear ${firstName} pronounced`}
           className={`cursor-pointer rounded-[3px] border px-1 leading-normal transition-colors ${
             speaking
               ? 'border-accent text-accent'

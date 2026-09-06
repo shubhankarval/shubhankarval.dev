@@ -14,7 +14,7 @@ export const stack: StackGroup[] = [
     label: 'languages',
     entries: [
       { label: 'TypeScript', core: true },
-      { label: 'Java' },
+      { label: 'Java', core: true },
       { label: 'Python' },
       { label: 'SQL' },
     ],
@@ -23,8 +23,8 @@ export const stack: StackGroup[] = [
     label: 'web · backend',
     entries: [
       { label: 'React', core: true },
-      { label: 'Next.js', core: true },
-      { label: 'Spring Boot' },
+      { label: 'Spring Boot', core: true },
+      { label: 'Next.js' },
       { label: 'Flask' },
       { label: 'Node.js' },
       { label: 'TailwindCSS' },

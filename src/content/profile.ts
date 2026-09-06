@@ -6,8 +6,8 @@ export type ProfileLink = {
 
 export const profile = {
   name: 'Shubhankar Valimbe',
-  ipa: '/ʃʊˈbʱʌŋ.kʌɾ ʋʌˈlɪm.beː/',
-  respelling: 'shoo-BAHNG-kar vah-LIM-bay',
+  ipa: '/ʃʊˈbʱʌŋ.kʌɾ/',
+  respelling: 'shoo-BAHNG-kar',
   role: 'Fullstack Software Engineer',
   location: 'Philadelphia, PA',
   timeZone: 'America/New_York',

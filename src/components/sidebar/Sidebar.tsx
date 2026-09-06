@@ -17,7 +17,7 @@ export default function Sidebar() {
             bg-[radial-gradient(circle_at_30%_25%,var(--accent),transparent_55%),linear-gradient(135deg,var(--bg-sunken),var(--line-strong))]
           "
         />
-        <h1 className="mt-3 font-serif text-4xl leading-[1.05] font-medium tracking-[-0.02em]">
+        <h1 className="mt-3 font-serif text-[2rem] leading-[1.05] font-medium tracking-[-0.02em] whitespace-nowrap">
           {profile.name}
         </h1>
         <NamePronunciation name={profile.name} ipa={profile.ipa} respelling={profile.respelling} />
