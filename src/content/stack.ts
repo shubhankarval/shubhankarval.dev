@@ -11,35 +11,43 @@ export type StackGroup = {
 
 export const stack: StackGroup[] = [
   {
-    label: 'Languages',
+    label: 'languages',
     entries: [
       { label: 'TypeScript', core: true },
-      { label: 'Python' },
       { label: 'Java' },
+      { label: 'Python' },
       { label: 'SQL' },
     ],
   },
   {
-    label: 'Web',
+    label: 'web · backend',
     entries: [
       { label: 'React', core: true },
       { label: 'Next.js', core: true },
-      { label: 'Tailwind' },
-      { label: 'GraphQL' },
-      { label: 'Node' },
+      { label: 'Spring Boot' },
+      { label: 'Flask' },
+      { label: 'Node.js' },
+      { label: 'TailwindCSS' },
     ],
   },
   {
-    label: 'Infra & Delivery',
-    entries: [{ label: 'AWS', core: true }, { label: 'Docker' }, { label: 'Terraform' }],
+    label: 'infra · delivery',
+    entries: [
+      { label: 'AWS', core: true },
+      { label: 'Docker' },
+      { label: 'Terraform' },
+      { label: 'Kafka' },
+      { label: 'Jenkins' },
+      { label: 'Kubernetes' },
+    ],
   },
   {
-    label: 'Observe & Data',
+    label: 'data · observe',
     entries: [
-      { label: 'OpenTelemetry' },
-      { label: 'Grafana' },
-      { label: 'Postgres' },
+      { label: 'PostgreSQL' },
       { label: 'Redis' },
+      { label: 'Splunk' },
+      { label: 'Dynatrace' },
     ],
   },
 ];
