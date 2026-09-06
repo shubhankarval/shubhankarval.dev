@@ -29,12 +29,12 @@ export async function getGithubStats(): Promise<GithubStats> {
 
   // 1) Get the node id, used to filter commit history down to this author.
   const boot = await githubGraphQL<BootstrapResponse>(BOOTSTRAP_QUERY, { login });
-  if (!boot?.users?.[0]?.ids) throw new Error(`Github user "${login}" not found.`);
+  if (!boot?.user) throw new Error(`Github user "${login}" not found.`);
 
   // 2) Fetch everything else in one request.
   const raw = await githubGraphQL<StatsResponse>(STATS_QUERY, {
     login,
-    userId: boot.users[0].ids,
+    userId: boot.user.id,
   });
 
   return mapResponse(raw);

@@ -15,7 +15,7 @@ export interface ContributionDay {
 }
 
 export interface ContributionWeek {
-  days: ContributionDay[]; // Sunday-first; the current week is partial
+  days: ContributionDay[]; // Sunday-first; the first and last week can be partial
 }
 
 export interface GithubStats {
@@ -40,11 +40,9 @@ interface ContributionCalendar {
 }
 
 export interface BootstrapResponse {
-  users:
-    | {
-        ids: string;
-      }[]
-    | null;
+  user: {
+    id: string;
+  } | null;
 }
 
 interface CommitHistoryNode {
