@@ -66,3 +66,21 @@
     color: var(--bg);
   }
 }
+
+@layer components {
+  .availability-dot {
+    animation: availability-pulse 2.4s var(--default-transition-timing-function) infinite;
+  }
+}
+
+@keyframes availability-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
