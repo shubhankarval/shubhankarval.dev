@@ -2,6 +2,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
 import prettierConfig from 'eslint-plugin-prettier/recommended';
+import betterTailwindCss from 'eslint-plugin-better-tailwindcss';
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -16,8 +17,22 @@ const eslintConfig = defineConfig([
           singleQuote: true,
           printWidth: 100,
           trailingComma: 'es5',
-          endOfLine: 'auto',
+          endOfLine: 'lf',
         },
+      ],
+    },
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      'better-tailwindcss': betterTailwindCss,
+    },
+    settings: { 'better-tailwindcss': { entryPoint: 'src/app/globals.css' } },
+    rules: {
+      'better-tailwindcss/enforce-consistent-class-order': 'warn',
+      'better-tailwindcss/enforce-consistent-line-wrapping': [
+        'warn',
+        { printWidth: 180, group: 'never', preferSingleLine: true },
       ],
     },
   },
