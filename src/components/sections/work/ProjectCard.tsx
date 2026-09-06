@@ -14,7 +14,10 @@ export default function ProjectCard({
         target: '_blank',
         rel: 'noopener noreferrer',
       })}
-      className="flex flex-col gap-2 rounded-lg border border-line bg-bg-raised p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-line-strong"
+      className="
+        flex flex-col gap-2 rounded-lg border border-line bg-bg-raised p-4 transition-[border-color,transform] hover:-translate-y-0.5
+        hover:border-line-strong
+      "
     >
       <div className="flex items-center justify-between gap-2">
         <h3 className="text-lg font-medium lowercase">{name}</h3>

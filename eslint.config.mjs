@@ -32,7 +32,7 @@ const eslintConfig = defineConfig([
       'better-tailwindcss/enforce-consistent-class-order': 'warn',
       'better-tailwindcss/enforce-consistent-line-wrapping': [
         'warn',
-        { printWidth: 180, group: 'never', preferSingleLine: true },
+        { printWidth: 155, group: 'never', preferSingleLine: true },
       ],
     },
   },
