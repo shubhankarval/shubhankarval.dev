@@ -14,7 +14,7 @@ export default function CredentialItem({ title, detail, year, href }: Readonly<C
               aria-hidden
               className="ml-1 text-[10px] opacity-0 transition-opacity group-hover:opacity-50"
             >
-              ↗
+              {`\u2197`}
             </span>
           )}
         </strong>

@@ -20,7 +20,7 @@ export const stack: StackGroup[] = [
     ],
   },
   {
-    label: 'web · backend',
+    label: 'web \u00B7 backend',
     entries: [
       { label: 'React', core: true },
       { label: 'Spring Boot', core: true },
@@ -31,7 +31,7 @@ export const stack: StackGroup[] = [
     ],
   },
   {
-    label: 'infra · delivery',
+    label: 'infra \u00B7 delivery',
     entries: [
       { label: 'AWS', core: true },
       { label: 'Docker' },
@@ -42,7 +42,7 @@ export const stack: StackGroup[] = [
     ],
   },
   {
-    label: 'data · observe',
+    label: 'data \u00B7 observe',
     entries: [
       { label: 'PostgreSQL' },
       { label: 'Redis' },

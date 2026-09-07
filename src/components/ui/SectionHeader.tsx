@@ -22,7 +22,7 @@ export default function SectionHeader({ title, meta, link }: Readonly<SectionHea
             target: '_blank',
             rel: 'noopener noreferrer',
           })}
-          className="font-mono text-[11px] whitespace-nowrap text-text-faint transition-colors hover:text-accent"
+          className="font-mono text-[10px] whitespace-nowrap text-text-faint transition-colors hover:text-accent"
         >
           {link.label}
           {link.arrow && (

@@ -26,7 +26,7 @@ export default async function Footer() {
         </a>
       </div>
       <footer className="border-t border-line pt-4 text-right font-mono text-[11px] text-text-faint">
-        &copy; {new Date().getFullYear()} ∙ {contact.colophon}
+        &copy; {new Date().getFullYear()} {`\u00B7`} {contact.colophon}
       </footer>
     </>
   );
