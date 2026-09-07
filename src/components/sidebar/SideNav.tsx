@@ -22,7 +22,7 @@ export default function SideNav({ links }: SideNavProps) {
             {label}
             <span
               aria-hidden
-              className="text-[10px] opacity-0 transition-opacity group-hover:opacity-50"
+              className="arrow-fallback text-[10px] opacity-0 transition-opacity group-hover:opacity-50"
             >
               {`\u2197`}
             </span>

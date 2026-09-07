@@ -1,5 +1,16 @@
 @import 'tailwindcss';
 
+/* Geist's latin subset omits the arrows, so they escape to whatever system font the OS picks,
+ which are far too large. This claims those two codepoints only, from a narrow face known to 
+ carry them on each platform. */
+@font-face {
+  font-family: 'Arrow Fallback';
+  src:
+    local('Menlo'), local('Menlo-Regular'), local('Segoe UI Symbol'), local('SegoeUISymbol'),
+    local('DejaVu Sans'), local('DejaVuSans'), local('Noto Sans Symbols 2');
+  unicode-range: U+2192, U+2197;
+}
+
 :root {
   --bg: #0d0d0f;
   --bg-sunken: #131316;
@@ -40,6 +51,10 @@
 @layer base {
   html {
     color-scheme: dark;
+  }
+
+  .arrow-fallback {
+    font-family: 'Arrow Fallback', sans-serif;
   }
 
   body {
