@@ -1,6 +1,7 @@
 import Sidebar from '@components/sidebar/Sidebar';
 import Work from '@components/sections/work/Work';
 import Credentials from '@components/sections/credentials/Credentials';
+import Activity from '@/components/sections/activity/Activity';
 
 export default async function Home() {
   return (
@@ -9,6 +10,7 @@ export default async function Home() {
       <main className="flex min-w-0 flex-col gap-9">
         <Work />
         <Credentials />
+        <Activity />
       </main>
     </div>
   );
