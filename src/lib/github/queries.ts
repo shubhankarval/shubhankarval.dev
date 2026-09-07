@@ -23,7 +23,7 @@ export const STATS_QUERY = /* GraphQL */ `
       }
       # Candidate repos for recent commits, newest push first
       recentRepos: repositories(
-        first: 20
+        first: 10
         ownerAffiliations: OWNER
         isFork: false
         privacy: PUBLIC
@@ -31,17 +31,25 @@ export const STATS_QUERY = /* GraphQL */ `
       ) {
         nodes {
           nameWithOwner
-          defaultBranchRef {
-            target {
-              ... on Commit {
-                history(first: 8, author: { id: $userId }) {
-                  nodes {
-                    oid
-                    messageHeadline
-                    committedDate
-                    url
-                    additions
-                    deletions
+          # Every branch, not just the default one, newest tip first.
+          # 10 repos x 10 branches x 5 commits stays well inside the node limit.
+          branches: refs(
+            refPrefix: "refs/heads/"
+            first: 10
+            orderBy: { field: TAG_COMMIT_DATE, direction: DESC }
+          ) {
+            nodes {
+              target {
+                ... on Commit {
+                  history(first: 5, author: { id: $userId }) {
+                    nodes {
+                      oid
+                      messageHeadline
+                      committedDate
+                      url
+                      additions
+                      deletions
+                    }
                   }
                 }
               }

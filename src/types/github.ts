@@ -54,14 +54,18 @@ interface CommitHistoryNode {
   deletions: number;
 }
 
+interface BranchNode {
+  target: {
+    history?: {
+      nodes: CommitHistoryNode[];
+    } | null;
+  } | null;
+}
+
 interface RecentRepoNode {
   nameWithOwner: string;
-  defaultBranchRef: {
-    target: {
-      history?: {
-        nodes: CommitHistoryNode[];
-      } | null;
-    } | null;
+  branches: {
+    nodes: BranchNode[];
   } | null;
 }
 

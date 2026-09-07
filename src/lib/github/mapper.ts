@@ -29,21 +29,28 @@ export function mapResponse(raw: StatsResponse): GithubStats {
     })
   );
 
-  const recentCommits: RecentCommit[] = user.recentRepos.nodes
-    .flatMap((repo) => {
-      const history = repo.defaultBranchRef?.target?.history;
-      if (!history?.nodes) return [];
+  const bySha = new Map<string, RecentCommit>();
 
-      return history.nodes.map((c) => ({
-        repo: repo.nameWithOwner,
-        message: c.messageHeadline,
-        sha: c.oid,
-        url: c.url,
-        committedAt: c.committedDate,
-        additions: c.additions,
-        deletions: c.deletions,
-      }));
-    })
+  for (const repo of user.recentRepos.nodes) {
+    for (const branch of repo.branches?.nodes ?? []) {
+      for (const commit of branch.target?.history?.nodes ?? []) {
+        // Branches share history, so a commit arrives once per branch containing it.
+        if (bySha.has(commit.oid)) continue;
+
+        bySha.set(commit.oid, {
+          repo: repo.nameWithOwner,
+          message: commit.messageHeadline,
+          sha: commit.oid,
+          url: commit.url,
+          committedAt: commit.committedDate,
+          additions: commit.additions,
+          deletions: commit.deletions,
+        });
+      }
+    }
+  }
+
+  const recentCommits: RecentCommit[] = [...bySha.values()]
     .sort((a, b) => new Date(b.committedAt).getTime() - new Date(a.committedAt).getTime())
     .slice(0, 8);
 

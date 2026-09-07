@@ -50,14 +50,14 @@ export default function FeedItem({
         {formatRelativeTime(committedAt, now)}
       </time>
       <span className="leading-[1.65] text-text-muted">
-        <b className="font-medium text-text">{label}</b> - {renderMessage(message)}
+        <b className="font-medium text-text">{label}</b> &mdash; {renderMessage(message)}
       </span>
       <span className="inline-flex gap-1 font-mono text-[11px] whitespace-nowrap tabular-nums">
         <span className="text-[#6ad2a0]">+{additions}</span>
         <span aria-hidden className="text-text-faint">
           /
         </span>
-        <span className="text-[#e0705a]">-{deletions}</span>
+        <span className="text-[#e0705a]">&minus;{deletions}</span>
       </span>
     </a>
   );
