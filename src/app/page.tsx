@@ -2,6 +2,7 @@ import Sidebar from '@components/sidebar/Sidebar';
 import Work from '@components/sections/work/Work';
 import Credentials from '@components/sections/credentials/Credentials';
 import Activity from '@/components/sections/activity/Activity';
+import Footer from '@components/sections/Footer';
 
 export default async function Home() {
   return (
@@ -11,6 +12,7 @@ export default async function Home() {
         <Work />
         <Credentials />
         <Activity />
+        <Footer />
       </main>
     </div>
   );

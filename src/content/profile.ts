@@ -1,3 +1,5 @@
+import { contact } from './contact';
+
 export type ProfileLink = {
   label: string;
   href: string;
@@ -17,7 +19,7 @@ export const profile = {
     { label: 'resume.pdf', href: '/resume.pdf', primary: true },
     { label: 'github', href: 'https://github.com/shubhankarval' },
     { label: 'linkedin', href: 'https://www.linkedin.com/in/shubhankar-valimbe/' },
-    { label: 'email', href: 'mailto:shubhankarvalimbe@gmail.com' },
+    { label: 'email', href: `mailto:${contact.email}` },
   ],
 } satisfies {
   name: string;
