@@ -62,8 +62,8 @@
   }
 
   ::selection {
-    background: var(--accent);
-    color: var(--bg);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    color: var(--text);
   }
 }
 
