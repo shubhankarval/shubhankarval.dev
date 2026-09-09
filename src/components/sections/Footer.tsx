@@ -2,9 +2,14 @@ import { cacheLife } from 'next/cache';
 import { contact } from '@content/contact';
 
 // Cached so the copyright year can read the clock without opting the route out of prerendering.
-export default async function Footer() {
+async function getCurrentYear() {
   'use cache';
-  cacheLife('days');
+  cacheLife('weeks');
+  return new Date().getFullYear();
+}
+
+export default async function Footer() {
+  const currentYear = await getCurrentYear();
 
   return (
     <>
@@ -26,7 +31,7 @@ export default async function Footer() {
         </a>
       </div>
       <footer className="border-t border-line pt-4 text-right font-mono text-[11px] text-text-faint">
-        &copy; {new Date().getFullYear()} {`\u00B7`} {contact.colophon}
+        &copy; {currentYear} {`\u00B7`} {contact.colophon}
       </footer>
     </>
   );
