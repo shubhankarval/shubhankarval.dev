@@ -4,7 +4,7 @@ const trigger = 'relative cursor-help border-b border-line-strong';
 
 // Split out only because a ~20-utility chain inline makes the JSX unreadable.
 const tooltip = [
-  'after:pointer-events-none after:absolute after:top-[calc(100%+8px)] after:left-0 after:z-15',
+  'after:pointer-events-none after:absolute after:top-[calc(100%+8px)] after:left-0 after:z-5',
   'after:content-[attr(data-note)] after:w-max after:max-w-65 after:px-2.25 after:py-1.5',
   'after:rounded-sm after:border after:border-line after:bg-bg-raised after:shadow-popover',
   'after:font-mono after:text-[11px] after:leading-normal after:text-text-muted',

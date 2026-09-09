@@ -1,8 +1,8 @@
 import Sidebar from '@components/sidebar/Sidebar';
-import Bio from '@/components/sections/Bio';
+import Bio from '@components/sections/Bio';
 import Work from '@components/sections/work/Work';
 import Credentials from '@components/sections/credentials/Credentials';
-import Activity from '@/components/sections/activity/Activity';
+import Activity from '@components/sections/activity/Activity';
 import Footer from '@components/sections/Footer';
 
 export default async function Home() {
