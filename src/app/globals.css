@@ -46,6 +46,8 @@
 
   --default-transition-duration: 180ms;
   --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shadow-popover: 1px 2px rgb(0 0 0 / 0.4), 0 5px 24px -12px rgb(0 0 0 / 0.6);
 }
 
 @layer base {
