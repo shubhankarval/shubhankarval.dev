@@ -1,5 +1,6 @@
 import Sidebar from '@components/sidebar/Sidebar';
 import Bio from '@components/sections/Bio';
+import Experience from '@components/sections/experience/Experience';
 import Work from '@components/sections/work/Work';
 import Credentials from '@components/sections/credentials/Credentials';
 import Activity from '@components/sections/activity/Activity';
@@ -11,6 +12,7 @@ export default async function Home() {
       <Sidebar />
       <main className="flex min-w-0 flex-col gap-9">
         <Bio />
+        <Experience />
         <Work />
         <Credentials />
         <Activity />
