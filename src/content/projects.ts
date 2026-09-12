@@ -21,7 +21,7 @@ export const projects: Project[] = [
   {
     name: 'split & go',
     description:
-      'Split-pay for group bookings in Chase Travel - every traveler settles their own share, on their own card.',
+      'Split-pay for group bookings in Chase Travel \u2014 every traveler settles their own share, on their own card.',
     language: 'Java',
     languageColor: '#b07219',
   },
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     name: 'nextjs-starter-pack',
     href: 'https://www.npmjs.com/package/nextjs-starter-pack',
     description:
-      'Published npm starter - the integrations every Next.js project needs, zero config.',
+      'Published npm starter \u2014 the integrations every Next.js project needs, zero config.',
     language: 'TypeScript',
     languageColor: '#3178c6',
   },

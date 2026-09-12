@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard';
 
 export default function Work() {
   return (
-    <section>
+    <section id="work">
       <SectionHeader title="Work" link={{ label: 'see all', href: projectsHref, arrow: true }} />
       <div className="grid gap-3 lg:grid-cols-2">
         {projects.map((project) => (
