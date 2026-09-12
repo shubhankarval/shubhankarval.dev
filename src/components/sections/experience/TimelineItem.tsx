@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import type { Role } from '@content/experience';
 import TimelineDot from './TimelineDot';
 
-const METRIC = /\*\*(.*?)\*\*/g;
+const METRIC = /\*\*(.+?)\*\*/g;
 
 // Keeps highlight copy a plain string in content/ without pulling in a markdown renderer.
 function withMetric(text: string) {
