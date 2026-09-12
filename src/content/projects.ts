@@ -1,6 +1,7 @@
 export type Project = {
   name: string;
-  href: string;
+  /** Omit for work that has no public page. */
+  href?: string;
   description: string;
   language: string;
   /** GitHub's linguist color for 'language'. */
@@ -11,32 +12,32 @@ export const projectsHref = 'https://github.com/shubhankarval?tab=repositories';
 
 export const projects: Project[] = [
   {
-    name: 'driftwood',
-    href: '#',
+    name: 'cobol studio',
     description:
-      'Terraform drift detector that diffs live infra against committed HCL and opens the reconciliation PR.',
-    language: 'Go',
-    languageColor: '#00ADD8',
+      'Patent-pending internal tool that maps mainframe code into a graph database so AI can explain it back.',
+    language: 'Python',
+    languageColor: '#3572A5',
   },
   {
-    name: 'pinch',
-    href: '#',
-    description: '12kb request coalescer for edge runtimes. No cache, no invalidation problem.',
+    name: 'split & go',
+    description:
+      'Split-pay for group bookings in Chase Travel - every traveler settles their own share, on their own card.',
+    language: 'Java',
+    languageColor: '#b07219',
+  },
+  {
+    name: 'nextjs-starter-pack',
+    href: 'https://www.npmjs.com/package/nextjs-starter-pack',
+    description:
+      'Published npm starter - the integrations every Next.js project needs, zero config.',
     language: 'TypeScript',
     languageColor: '#3178c6',
   },
   {
-    name: 'lintwall',
-    href: '#',
-    description: 'Pre-push gate that mirrors CI locally so typos never reach the build queue.',
-    language: 'Rust',
-    languageColor: '#dea584',
-  },
-  {
-    name: 'quiet log',
-    href: '#',
-    description: 'Terminal log viewer with fuzzy filtering, saved queries, and zero config.',
-    language: 'Go',
-    languageColor: '#00ADD8',
+    name: 'sorting visualizer',
+    href: 'https://easy-sorting-visualizer.netlify.app/',
+    description: 'Shell sort, bubble sort, and friends, animated one pass at a time.',
+    language: 'JavaScript',
+    languageColor: '#f1e05a',
   },
 ];
