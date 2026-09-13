@@ -17,12 +17,12 @@ export default function Sidebar() {
             bg-[radial-gradient(circle_at_30%_25%,var(--accent),transparent_55%),linear-gradient(135deg,var(--bg-sunken),var(--line-strong))]
           "
         />
-        <h1 className="mt-3 font-serif text-[2.10rem] leading-[1.05] tracking-[-0.02em] whitespace-nowrap">
+        <h1 className="mt-3 font-serif text-3xl leading-[1.05] tracking-[-0.02em] whitespace-nowrap">
           {profile.name}
         </h1>
         <NamePronunciation name={profile.name} ipa={profile.ipa} respelling={profile.respelling} />
         <p className="mt-3 text-sm text-text-muted">{profile.role}</p>
-        <div className="mt-2 flex items-baseline justify-between gap-2 border-t border-line pt-2 font-mono text-[11px] text-text-faint">
+        <div className="mt-2 flex items-baseline justify-between gap-2 border-t border-line pt-2 font-mono text-2xs text-text-faint">
           <span>{profile.location}</span>
           <LocalTime timeZone={profile.timeZone} />
         </div>
@@ -30,9 +30,7 @@ export default function Sidebar() {
       </div>
 
       <div>
-        <span className="font-mono text-[10px] tracking-widest text-text-faint uppercase">
-          Stack
-        </span>
+        <span className="font-mono text-2xs tracking-widest text-text-faint uppercase">Stack</span>
         {stack.map((group) => (
           <StackGroup key={group.label} label={group.label} entries={group.entries} />
         ))}

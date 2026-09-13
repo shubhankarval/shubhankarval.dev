@@ -21,7 +21,7 @@
 
   --text: #ededf0;
   --text-muted: #9a9aa2;
-  --text-faint: #6a6a72;
+  --text-faint: #7a7a82;
 
   --accent: #6ee7a8;
 }
@@ -48,6 +48,30 @@
   --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 
   --shadow-popover: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+}
+
+@theme {
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1.6;
+
+  --text-xs: clamp(0.75rem, 0.7231rem + 0.1351vw, 0.8125rem);
+  --text-xs--line-height: 1.6;
+
+  --text-sm: clamp(0.875rem, 0.848rem + 0.1351vw, 0.9375rem);
+  --text-sm--line-height: 1.6;
+
+  --text-base: clamp(1rem, 0.973rem + 0.1351vw, 1.0625rem);
+  --text-base--line-height: 1.6;
+
+  --text-lg: initial;
+
+  --text-xl: clamp(1.25rem, 1.1419rem + 0.5405vw, 1.5rem);
+  --text-xl--line-height: 1.6;
+
+  --text-2xl: initial;
+
+  --text-3xl: clamp(1.75rem, 1.5338rem + 1.0811vw, 2.25rem);
+  --text-3xl--line-height: 1.2;
 }
 
 @layer base {

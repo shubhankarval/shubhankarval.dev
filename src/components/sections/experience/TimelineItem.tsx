@@ -65,17 +65,17 @@ export default function TimelineItem({
     >
       <TimelineDot first={first} />
       <div className="flex items-baseline justify-between gap-3">
-        <h3 className="text-lg font-medium">{company}</h3>
-        <span className="font-mono text-[11px] whitespace-nowrap text-text-faint tabular-nums">
+        <h3 className="text-base font-medium">{company}</h3>
+        <span className="font-mono text-2xs whitespace-nowrap text-text-faint tabular-nums">
           {period}
         </span>
       </div>
-      <p className="mt-0.5 text-sm text-text-muted">
-        {title} <span className="font-mono text-[10px] text-text-faint">{`\u00B7 ${context}`}</span>
+      <p className="mt-0.5 text-xs text-text-muted">
+        {title} <span className="font-mono text-2xs text-text-faint">{`\u00B7 ${context}`}</span>
       </p>
       <ul className="mt-3 flex max-w-[62ch] flex-col gap-1">
         {highlights.map((highlight) => (
-          <li key={highlight} className="relative pl-4 text-sm leading-[1.75] text-text-muted">
+          <li key={highlight} className="relative pl-4 text-xs leading-[1.75] text-text-muted">
             <span aria-hidden className="absolute top-[0.78em] left-0 h-px w-1.75 bg-line-strong" />
             {withMetric(highlight)}
           </li>

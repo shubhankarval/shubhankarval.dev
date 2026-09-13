@@ -6,7 +6,7 @@ interface SideNavProps {
 
 export default function SideNav({ links }: SideNavProps) {
   return (
-    <nav className="flex flex-col gap-px font-mono text-sm">
+    <nav className="flex flex-col gap-px font-mono text-xs">
       {links.map(({ label, href, primary }) => {
         const external = href.startsWith('http');
 
@@ -22,7 +22,7 @@ export default function SideNav({ links }: SideNavProps) {
             {label}
             <span
               aria-hidden
-              className="arrow-fallback text-[10px] opacity-0 transition-opacity group-hover:opacity-50"
+              className="arrow-fallback text-2xs opacity-0 transition-opacity group-hover:opacity-50"
             >
               {`\u2197`}
             </span>
