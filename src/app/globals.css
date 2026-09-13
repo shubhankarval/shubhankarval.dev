@@ -1,8 +1,10 @@
 @import 'tailwindcss';
 
-/* Geist's latin subset omits the arrows, so they escape to whatever system font the OS picks,
- which are far too large. This claims those two codepoints only, from a narrow face known to 
- carry them on each platform. */
+/*
+ * Geist's latin subset omits the arrows, so they escape to whatever system font the OS picks,
+ * which are far too large. This claims those two codepoints only, from a narrow face known to
+ * carry them on each platform.
+ */
 @font-face {
   font-family: 'Arrow Fallback';
   src:
@@ -50,6 +52,11 @@
   --shadow-popover: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
 }
 
+/*
+ * Every step interpolates across the same 320px-1060px window, so the ramp keeps its proportions
+ * at any width and stops growing where max-w-265 caps the layout. lg and 2xl are dropped rather
+ * than left at their stock values, which would strand two static sizes inside a fluid ramp.
+ */
 @theme {
   --text-2xs: 0.6875rem;
   --text-2xs--line-height: 1.6;
