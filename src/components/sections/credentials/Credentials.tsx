@@ -5,7 +5,7 @@ import CredentialItem from './CredentialItem';
 export default function Credentials() {
   return (
     <section>
-      <SectionHeader title="Credentials" meta={`education \u00B7 certification`} />
+      <SectionHeader title="Credentials" meta={`edu \u00B7 cert`} />
       <ul className="grid overflow-hidden rounded-lg border border-line bg-bg-raised lg:grid-cols-2">
         {credentials.map((credential) => (
           <CredentialItem key={credential.title} {...credential} />

@@ -33,7 +33,7 @@ export default function NamePronunciation({
   };
 
   return (
-    <p className="mt-2 flex flex-wrap items-center gap-2 font-mono text-[10px] text-text-faint">
+    <p className="mt-2 flex flex-wrap items-center gap-2 font-mono text-2xs text-text-faint">
       <span className="text-text-muted">{ipa}</span>
       <span>{respelling}</span>
       {canSpeak && (

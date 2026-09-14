@@ -1,16 +1,5 @@
 @import 'tailwindcss';
 
-/* Geist's latin subset omits the arrows, so they escape to whatever system font the OS picks,
- which are far too large. This claims those two codepoints only, from a narrow face known to 
- carry them on each platform. */
-@font-face {
-  font-family: 'Arrow Fallback';
-  src:
-    local('Menlo'), local('Menlo-Regular'), local('Segoe UI Symbol'), local('SegoeUISymbol'),
-    local('DejaVu Sans'), local('DejaVuSans'), local('Noto Sans Symbols 2');
-  unicode-range: U+2192, U+2197;
-}
-
 :root {
   --bg: #0d0d0f;
   --bg-sunken: #131316;
@@ -21,7 +10,7 @@
 
   --text: #ededf0;
   --text-muted: #9a9aa2;
-  --text-faint: #6a6a72;
+  --text-faint: #7a7a82;
 
   --accent: #6ee7a8;
 }
@@ -42,7 +31,7 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-serif: ui-serif, 'Iowan Old Style', 'Georgia', serif;
+  --font-serif: var(--font-newsreader);
 
   --default-transition-duration: 180ms;
   --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
@@ -50,13 +39,38 @@
   --shadow-popover: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
 }
 
+/*
+ * Every step interpolates across the same 320px-1060px window, so the ramp keeps its proportions
+ * at any width and stops growing where max-w-265 caps the layout. lg and 2xl are dropped rather
+ * than left at their stock values, which would strand two static sizes inside a fluid ramp.
+ */
+@theme {
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1.6;
+
+  --text-xs: clamp(0.75rem, 0.7231rem + 0.1351vw, 0.8125rem);
+  --text-xs--line-height: 1.6;
+
+  --text-sm: clamp(0.875rem, 0.848rem + 0.1351vw, 0.9375rem);
+  --text-sm--line-height: 1.6;
+
+  --text-base: clamp(1rem, 0.973rem + 0.1351vw, 1.0625rem);
+  --text-base--line-height: 1.6;
+
+  --text-lg: initial;
+
+  --text-xl: clamp(1.25rem, 1.1419rem + 0.5405vw, 1.5rem);
+  --text-xl--line-height: 1.6;
+
+  --text-2xl: initial;
+
+  --text-3xl: clamp(1.75rem, 1.5338rem + 1.0811vw, 2.25rem);
+  --text-3xl--line-height: 1.2;
+}
+
 @layer base {
   html {
     color-scheme: dark;
-  }
-
-  .arrow-fallback {
-    font-family: 'Arrow Fallback', sans-serif;
   }
 
   body {

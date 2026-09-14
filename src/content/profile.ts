@@ -11,7 +11,7 @@ export const profile = {
   githubUsername: 'shubhankarval',
   ipa: '/ʃʊˈbʱʌŋ.kʌɾ/',
   respelling: 'shoo-BAHNG-kar',
-  role: 'Fullstack Software Engineer',
+  role: 'Fullstack Engineer',
   location: 'Philadelphia, PA',
   timeZone: 'America/New_York',
   availability: 'open to new roles',

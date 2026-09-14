@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
+
 import type { Credential } from '@content/credentials';
 
 const row = 'flex items-baseline justify-between gap-3 px-4 py-3';
@@ -7,20 +9,20 @@ export default function CredentialItem({ title, detail, year, href }: Readonly<C
   const body: ReactNode = (
     <>
       <div>
-        <strong className="block text-sm font-medium">
+        <strong className="block text-xs font-medium">
           {title}
           {href && (
-            <span
+            <ArrowUpRightIcon
               aria-hidden
-              className="arrow-fallback ml-1 text-[10px] opacity-0 transition-opacity group-hover:opacity-50"
-            >
-              {`\u2197`}
-            </span>
+              size={10}
+              weight="bold"
+              className="ml-1 inline align-middle opacity-0 transition-opacity group-hover:opacity-50"
+            />
           )}
         </strong>
-        <small className="mt-px block font-mono text-[10px] text-text-faint">{detail}</small>
+        <small className="mt-px block font-mono text-2xs text-text-faint">{detail}</small>
       </div>
-      <span className="font-mono text-[11px] text-text-faint tabular-nums">{year}</span>
+      <span className="font-mono text-2xs text-text-faint tabular-nums">{year}</span>
     </>
   );
 
