@@ -14,7 +14,7 @@ export default async function Footer() {
   return (
     <>
       <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-line bg-bg-sunken p-6">
-        <p className="font-serif text-base">
+        <p className="font-serif text-lg">
           {contact.prompt}
           <small className="mt-0.5 block font-mono text-2xs text-text-faint">{contact.meta}</small>
         </p>
