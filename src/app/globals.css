@@ -41,8 +41,9 @@
 
 /*
  * Every step interpolates across the same 320px-1060px window, so the ramp keeps its proportions
- * at any width and stops growing where max-w-265 caps the layout. lg and 2xl are dropped rather
- * than left at their stock values, which would strand two static sizes inside a fluid ramp.
+ * at any width and stops growing roughly at the width where the shell's max-w caps the layout.
+ * lg and 2xl are dropped rather than left at their stock values, which would strand two static
+ * sizes inside a fluid ramp.
  */
 @theme {
   --text-2xs: 0.6875rem;
