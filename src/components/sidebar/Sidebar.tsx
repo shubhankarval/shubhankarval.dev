@@ -26,7 +26,6 @@ export default function Sidebar() {
           <span>{profile.location}</span>
           <LocalTime timeZone={profile.timeZone} />
         </div>
-        <AvailabilityBadge label={profile.availability} />
       </div>
 
       <div>

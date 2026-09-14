@@ -11,10 +11,8 @@ export default function Bio() {
         <p className="max-w-[66ch]">
           Four years, 10+ production features, <b className="font-medium text-text">100k+</b>{' '}
           monthly users &mdash; currently at{' '}
-          <Note note={`Software engineer II \u00B7 consumer credit \u00B7 Wilmington, DE`}>
-            JPMorgan Chase
-          </Note>
-          . I designed the UI and built the API and graph layer for{' '}
+          <Note note={`Software engineer II \u00B7 consumer credit`}>JPMorgan Chase</Note>. I
+          designed the UI and built the API and graph layer for{' '}
           <Note href="#work" note={`patent-pending \u00B7 500+ employees using it`}>
             Cobol Studio
           </Note>
