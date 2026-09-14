@@ -1,26 +1,5 @@
-import type { ReactNode } from 'react';
 import type { Role } from '@content/experience';
 import TimelineDot from './TimelineDot';
-
-const METRIC = /\*\*(.+?)\*\*/g;
-
-// Keeps highlight copy a plain string in content/ without pulling in a markdown renderer.
-function withMetric(text: string) {
-  const parts: ReactNode[] = [];
-  let cursor = 0;
-
-  for (const match of text.matchAll(METRIC)) {
-    parts.push(text.slice(cursor, match.index));
-    parts.push(
-      <b key={match.index} className="font-medium text-text tabular-nums">
-        {match[1]}
-      </b>
-    );
-    cursor = match.index + match[0].length;
-  }
-  parts.push(text.slice(cursor));
-  return parts;
-}
 
 // The rail runs the full height of the list, so the end rows hide the overhang beyond the first
 // and last dots. Each mask butts against its dot's edge rather than its centre, or it would paint
@@ -55,7 +34,7 @@ export default function TimelineItem({
   title,
   context,
   period,
-  highlights,
+  summary,
   first,
 }: Readonly<Role & { first?: boolean }>) {
   return (
@@ -73,14 +52,7 @@ export default function TimelineItem({
       <p className="mt-0.5 text-xs text-text-muted">
         {title} <span className="font-mono text-2xs text-text-faint">{`\u00B7 ${context}`}</span>
       </p>
-      <ul className="mt-3 flex max-w-[62ch] flex-col gap-1">
-        {highlights.map((highlight) => (
-          <li key={highlight} className="relative pl-4 text-xs leading-[1.75] text-text-muted">
-            <span aria-hidden className="absolute top-[0.78em] left-0 h-px w-1.75 bg-line-strong" />
-            {withMetric(highlight)}
-          </li>
-        ))}
-      </ul>
+      <p className="mt-3 max-w-[62ch] text-xs leading-[1.75] text-text-muted">{summary}</p>
     </li>
   );
 }

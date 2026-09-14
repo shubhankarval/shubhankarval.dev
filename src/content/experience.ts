@@ -4,11 +4,10 @@ export type Role = {
   /** Company shape and location, set small beside the title. */
   context: string;
   period: string;
-  /** Wrap a metric in ** ** to bold it. */
-  highlights: string[];
+  summary: string;
 };
 
-export const experienceRange = '2023 - now';
+export const experienceRange = '2022 - now';
 
 export const experience: Role[] = [
   {
@@ -16,30 +15,23 @@ export const experience: Role[] = [
     title: 'Software engineer II',
     context: 'consumer credit',
     period: '2024 - now',
-    highlights: [
-      'Ship the credit line increase/exchange, and balance transfer features \u2014 the decisioning behind them clears **$1.3B+** annually at **99.9%** uptime.',
-      'Rewrote the servicing front end from legacy JavaScript into React and TypeScript: **40%** faster page loads on a **25%** smaller bundle.',
-      'Built the internal tool agents use to correct customer data \u2014 turnaround down from **24 hours** to **5 minutes**.',
-    ],
+    summary:
+      'Ship the credit line increase/exchange, and balance transfer features \u2014 the decisioning behind them clears $1.3B+ annually at 99.9% uptime. Rewrote the web front end from legacy JavaScript into React and TypeScript for faster page loads on a smaller bundle, and migrated the services behind it off on-prem data centers onto AWS.',
   },
   {
     company: 'Donovan',
-    title: 'Full-stack engineer',
-    context: 'early stage',
+    title: 'Founding engineer',
+    context: 'edtech nonprofit',
     period: '2023 - 2024',
-    highlights: [
-      'Built the learning platform behind a music and art program for underserved kids \u2014 animation-heavy Next.js, server-rendered for **40%** more organic reach.',
-      'Fenced student records behind row-level security in Supabase, enforced at the database rather than the API.',
-    ],
+    summary:
+      'Led 9 engineers taking the learning platform behind a music and art program for underserved kids from first commit to production \u2014 animation-heavy Next.js with Motion, a Bun/ElysiaJS backend, Drizzle over Neon Postgres \u2014 and kept it running on Azure at a cost an early-stage budget could carry.',
   },
   {
     company: 'SUNY Research Foundation',
-    title: 'Software engineer',
-    context: 'assistive tech research',
-    period: '2023',
-    highlights: [
-      'Built speech-to-text and text-to-speech keyboards for people with ALS, cerebral palsy, and autism.',
-      'Built the tool researchers use to capture and score responses in an augmentative communication study \u2014 Flask APIs on Docker, **50%** more concurrent sessions, **$50K** a year saved.',
-    ],
+    title: 'Research engineer',
+    context: 'assistive tech',
+    period: '2022 - 2023',
+    summary:
+      'Built the Al training tool behind an augmentative communication study for people with ALS, cerebral palsy, and autism \u2014 Whisper, Google TTS, a fine-tuned DialoGPT chatbot \u2014 plus the NLP pipeline scoring its replies against a human-rated set, 45% more accurate after tuning.',
   },
 ];
