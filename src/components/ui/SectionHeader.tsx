@@ -1,3 +1,5 @@
+import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
+
 interface SectionHeaderProps {
   title: string;
   meta?: string;
@@ -24,9 +26,12 @@ export default function SectionHeader({ title, meta, link }: Readonly<SectionHea
         >
           {link.label}
           {link.arrow && (
-            <span aria-hidden className="arrow-fallback ml-2">
-              {`\u2192`}
-            </span>
+            <ArrowRightIcon
+              aria-hidden
+              size={10}
+              weight="bold"
+              className="ml-2 inline align-middle"
+            />
           )}
         </a>
       )}

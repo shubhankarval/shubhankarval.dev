@@ -1,3 +1,5 @@
+import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr';
+
 import type { ProfileLink } from '@content/profile';
 
 interface SideNavProps {
@@ -20,12 +22,12 @@ export default function SideNav({ links }: SideNavProps) {
             }`}
           >
             {label}
-            <span
+            <ArrowUpRightIcon
               aria-hidden
-              className="arrow-fallback text-2xs opacity-0 transition-opacity group-hover:opacity-50"
-            >
-              {`\u2197`}
-            </span>
+              size={10}
+              weight="bold"
+              className="opacity-0 transition-opacity group-hover:opacity-50"
+            />
           </a>
         );
       })}
