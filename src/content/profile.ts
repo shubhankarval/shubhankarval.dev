@@ -9,9 +9,10 @@ export type ProfileLink = {
 export const profile = {
   name: 'Shubhankar Valimbe',
   githubUsername: 'shubhankarval',
+  siteRepo: 'shubhankarval.dev',
   ipa: '/ʃʊˈbʱʌŋ.kʌɾ/',
   respelling: 'shoo-BAHNG-kar',
-  role: 'Fullstack Engineer',
+  role: 'Full-stack Engineer',
   location: 'Philadelphia, PA',
   timeZone: 'America/New_York',
   availability: 'open to new roles',
@@ -24,6 +25,7 @@ export const profile = {
 } satisfies {
   name: string;
   githubUsername: string;
+  siteRepo: string;
   ipa: string;
   respelling: string;
   role: string;

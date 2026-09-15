@@ -41,8 +41,8 @@
 
 /*
  * Every step interpolates across the same 320px-1060px window, so the ramp keeps its proportions
- * at any width and stops growing where max-w-265 caps the layout. lg and 2xl are dropped rather
- * than left at their stock values, which would strand two static sizes inside a fluid ramp.
+ * at any width and stops growing roughly at the width where the shell's max-w caps the layout.
+ * `initial` deletes the utility outright, so using as no-op.
  */
 @theme {
   --text-2xs: 0.6875rem;
@@ -57,7 +57,8 @@
   --text-base: clamp(1rem, 0.973rem + 0.1351vw, 1.0625rem);
   --text-base--line-height: 1.6;
 
-  --text-lg: initial;
+  --text-lg: clamp(1.125rem, 1.0709rem + 0.2703vw, 1.125rem);
+  --text-lg--line-height: 1.6;
 
   --text-xl: clamp(1.25rem, 1.1419rem + 0.5405vw, 1.5rem);
   --text-xl--line-height: 1.6;

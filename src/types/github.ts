@@ -24,6 +24,12 @@ export interface GithubStats {
   fetchedAt: string;
 }
 
+export interface SiteCommit {
+  sha: string;
+  url: string;
+  committedAt: string;
+}
+
 // --- GraphQL responses ---
 
 export type ContributionLevel =
@@ -76,4 +82,16 @@ export interface StatUser {
 
 export interface StatsResponse {
   user: StatUser | null;
+}
+
+export interface SiteCommitResponse {
+  repository: {
+    ref: {
+      target: {
+        abbreviatedOid: string;
+        committedDate: string;
+        url: string;
+      } | null;
+    } | null;
+  } | null;
 }

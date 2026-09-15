@@ -13,20 +13,19 @@ export default function Sidebar() {
         <div
           aria-hidden
           className="
-            size-12 rounded-full border border-line-strong
+            size-12.5 rounded-full border border-line-strong
             bg-[radial-gradient(circle_at_30%_25%,var(--accent),transparent_55%),linear-gradient(135deg,var(--bg-sunken),var(--line-strong))]
           "
         />
-        <h1 className="mt-3 font-serif text-3xl leading-[1.05] tracking-[-0.02em] whitespace-nowrap">
+        <h1 className="mt-4 font-serif text-3xl leading-[1.05] tracking-[-0.02em] whitespace-nowrap">
           {profile.name}
         </h1>
         <NamePronunciation name={profile.name} ipa={profile.ipa} respelling={profile.respelling} />
-        <p className="mt-3 text-sm text-text-muted">{profile.role}</p>
-        <div className="mt-2 flex items-baseline justify-between gap-2 border-t border-line pt-2 font-mono text-2xs text-text-faint">
+        <p className="mt-3.5 text-sm text-text-muted">{profile.role}</p>
+        <div className="mt-1.5 flex items-baseline justify-between gap-2 border-t border-line pt-2 font-mono text-2xs text-text-faint">
           <span>{profile.location}</span>
           <LocalTime timeZone={profile.timeZone} />
         </div>
-        <AvailabilityBadge label={profile.availability} />
       </div>
 
       <div>

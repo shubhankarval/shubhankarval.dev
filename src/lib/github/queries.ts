@@ -60,3 +60,19 @@ export const STATS_QUERY = /* GraphQL */ `
     }
   }
 `;
+
+export const SITE_COMMIT_QUERY = /* GraphQL */ `
+  query SiteCommit($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      ref(qualifiedName: "refs/heads/master") {
+        target {
+          ... on Commit {
+            abbreviatedOid
+            committedDate
+            url
+          }
+        }
+      }
+    }
+  }
+`;
