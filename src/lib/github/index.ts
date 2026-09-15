@@ -2,11 +2,17 @@ import 'server-only';
 
 import { cacheLife, cacheTag } from 'next/cache';
 
-import type { BootstrapResponse, GithubStats, StatsResponse } from '@/types/github';
+import type {
+  BootstrapResponse,
+  GithubStats,
+  SiteCommit,
+  StatsResponse,
+  SiteCommitResponse,
+} from '@/types/github';
 import { createGraphQLClient } from '@lib/graphql';
 import { profile } from '@content/profile';
 import { mapResponse } from './mapper';
-import { BOOTSTRAP_QUERY, STATS_QUERY } from './queries';
+import { BOOTSTRAP_QUERY, SITE_COMMIT_QUERY, STATS_QUERY } from './queries';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
@@ -38,4 +44,30 @@ export async function getGithubStats(): Promise<GithubStats> {
   });
 
   return mapResponse(raw);
+}
+
+// Latest commit on master for this site's own repo. Returns null so a failure
+// degrades to a footer without the commit link rather than a broken page.
+export async function getLatestSiteCommit(): Promise<SiteCommit | null> {
+  'use cache';
+  cacheLife('hours');
+  cacheTag('github');
+
+  try {
+    const raw = await githubGraphQL<SiteCommitResponse>(SITE_COMMIT_QUERY, {
+      owner: profile.githubUsername,
+      name: profile.siteRepo,
+    });
+
+    const target = raw.repository?.ref?.target;
+    if (!target) return null;
+
+    return {
+      sha: target.abbreviatedOid,
+      url: target.url,
+      committedAt: target.committedDate,
+    };
+  } catch {
+    return null;
+  }
 }
