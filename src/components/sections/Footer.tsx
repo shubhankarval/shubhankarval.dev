@@ -38,14 +38,14 @@ export default async function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Latest commit ${commit.sha} on GitHub`}
-            className="inline-flex items-center gap-1.25 transition-colors hover:text-text"
+            className="inline-flex items-center gap-1.25 transition-colors hover:text-accent"
           >
             <GitCommitIcon aria-hidden size={14} />
             {commit.sha}
           </a>
         )}
         <div className="inline-flex items-center gap-1.25">
-          <CopyrightIcon aria-hidden size={14} />
+          <CopyrightIcon aria-label="Copyright" size={14} />
           <p>
             {currentYear} &middot; {contact.colophon}
           </p>
