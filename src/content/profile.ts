@@ -12,7 +12,7 @@ export const profile = {
   siteRepo: 'shubhankarval.dev',
   ipa: '/ʃʊˈbʱʌŋ.kʌɾ/',
   respelling: 'shoo-BAHNG-kar',
-  role: 'Fullstack Engineer',
+  role: 'Full-stack Engineer',
   location: 'Philadelphia, PA',
   timeZone: 'America/New_York',
   availability: 'open to new roles',
