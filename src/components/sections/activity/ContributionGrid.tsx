@@ -1,7 +1,7 @@
 import type { ContributionDay, ContributionWeek } from '@/types/github';
 
 const LEVEL_CLASS: Record<ContributionDay['level'], string> = {
-  0: 'bg-bg-sunken/55',
+  0: 'bg-bg-sunken',
   1: 'bg-accent/25',
   2: 'bg-accent/50',
   3: 'bg-accent/75',
