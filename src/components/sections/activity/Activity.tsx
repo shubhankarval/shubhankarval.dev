@@ -3,7 +3,7 @@ import { getGithubStats } from '@lib/github';
 import ContributionGrid from './ContributionGrid';
 import FeedItem from './FeedItem';
 
-const WEEKS_SHOWN = 25;
+const WEEKS_SHOWN = 30;
 const COMMITS_SHOWN = 4;
 
 export default async function Activity() {
