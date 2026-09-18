@@ -16,20 +16,29 @@ export default async function Footer() {
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-line bg-bg-sunken p-6">
-        <p className="font-serif text-lg">
-          {contact.prompt}
-          <small className="mt-0.5 block font-mono text-2xs text-text-faint">{contact.meta}</small>
-        </p>
-        <a
-          href={`mailto:${contact.email}`}
+      {/* Queries the card's own width, not the viewport */}
+      <div className="@container">
+        <div
           className="
-            inline-flex items-center rounded-sm bg-text px-3.5 py-1.75 font-mono text-xs text-bg transition-[transform,opacity] hover:-translate-y-px
-            hover:opacity-90
+            flex flex-col gap-4 rounded-xl border border-line bg-bg-sunken p-6 text-center @xl:flex-row @xl:items-center @xl:justify-between @xl:text-left
           "
         >
-          {contact.email}
-        </a>
+          <div className="min-w-0 font-serif text-lg">
+            {contact.prompt}
+            <small className="mt-0.5 block font-mono text-2xs text-text-faint">
+              {contact.meta}
+            </small>
+          </div>
+          <a
+            href={`mailto:${contact.email}`}
+            className="
+              flex min-h-11 items-center justify-center self-center rounded-lg bg-text px-4 font-mono text-xs text-bg transition-[transform,opacity]
+              hover:-translate-y-px hover:opacity-90 @xl:inline-flex @xl:min-h-0 @xl:shrink-0 @xl:rounded-sm @xl:px-3.5 @xl:py-1.75
+            "
+          >
+            {contact.email}
+          </a>
+        </div>
       </div>
       <footer className="flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 font-mono text-2xs text-text-faint">
         {commit && (
