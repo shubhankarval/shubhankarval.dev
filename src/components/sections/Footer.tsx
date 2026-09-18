@@ -23,12 +23,12 @@ export default async function Footer() {
             flex flex-col gap-4 rounded-xl border border-line bg-bg-sunken p-6 text-center @xl:flex-row @xl:items-center @xl:justify-between @xl:text-left
           "
         >
-          <div className="min-w-0 font-serif text-lg">
+          <p className="min-w-0 font-serif text-lg">
             {contact.prompt}
             <small className="mt-0.5 block font-mono text-2xs text-text-faint">
               {contact.meta}
             </small>
-          </div>
+          </p>
           <a
             href={`mailto:${contact.email}`}
             className="
