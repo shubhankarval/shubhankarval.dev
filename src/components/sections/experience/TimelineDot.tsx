@@ -5,7 +5,7 @@ import { motion, useScroll } from 'motion/react';
 import { RAIL_OFFSET } from './rail';
 
 const dot =
-  'absolute top-[--rail-y] left-[calc(var(--rail-x)-3px)] z-20 size-1.75 rounded-full border border-line-strong bg-inherit transition-colors';
+  'absolute top-(--rail-y) left-[calc(var(--rail-x)-3px)] z-20 size-1.75 rounded-full border border-line-strong bg-inherit transition-colors';
 
 export default function TimelineDot({ first = false }: Readonly<{ first?: boolean }>) {
   const ref = useRef<HTMLSpanElement>(null);

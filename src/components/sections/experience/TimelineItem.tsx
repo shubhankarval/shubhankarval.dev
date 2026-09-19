@@ -32,7 +32,7 @@ const railMaskBottom = [
 // Text clears the rail by the same gap at every width, so the gutter shrinks with it rather than
 // spending a fifth of a narrow card on empty space.
 const row =
-  'relative border-b border-line bg-bg-raised p-[var(--rail-pad)] pl-[calc(var(--rail-x)+1.125rem)] transition-colors last-of-type:border-b-0 hover:bg-bg-sunken';
+  'relative border-b border-line bg-bg-raised p-(--rail-pad) pl-[calc(var(--rail-x)+1.125rem)] transition-colors last-of-type:border-b-0 hover:bg-bg-sunken';
 
 export default function TimelineItem({
   company,
