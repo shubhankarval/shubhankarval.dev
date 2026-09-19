@@ -6,6 +6,7 @@ import { formatRelativeTime } from '@lib/utils';
 interface FeedItemProps extends RecentCommit {
   /** Timestamp the labels are relative to, so nothing reads the clock mid-render. */
   now: number;
+  className?: string;
 }
 
 /** Backtick spans become <code>, matching how the messages read on GitHub. */
@@ -35,6 +36,7 @@ export default function FeedItem({
   additions,
   deletions,
   now,
+  className = '',
 }: Readonly<FeedItemProps>) {
   const owner = profile.githubUsername;
   const label = repo.startsWith(`${owner}/`) ? repo.slice(owner.length + 1) : repo;
@@ -44,20 +46,30 @@ export default function FeedItem({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="grid grid-cols-[70px_1fr_auto] items-baseline gap-3 border-b border-line py-2 text-xs last:border-b-0"
+      className={`
+        flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line py-2 text-xs last:border-b-0 sm:grid sm:grid-cols-[70px_1fr_auto] sm:gap-3
+        ${className}
+      `}
     >
       <time dateTime={committedAt} className="pt-0.75 font-mono text-2xs text-text-faint">
         {formatRelativeTime(committedAt, now)}
       </time>
-      <span className="leading-[1.65] text-text-muted">
-        <b className="font-medium text-text">{label}</b> &mdash; {renderMessage(message)}
-      </span>
-      <span className="inline-flex gap-1 font-mono text-2xs whitespace-nowrap tabular-nums">
+
+      {/* Below sm the repo moves onto the meta line so the message gets a full row of its own. */}
+      <b className="font-medium text-text sm:hidden">{label}</b>
+
+      <span className="ml-auto inline-flex gap-1 font-mono text-2xs whitespace-nowrap tabular-nums sm:col-start-3 sm:row-start-1 sm:ml-0">
         <span className="text-[#6ad2a0]">+{additions}</span>
         <span aria-hidden className="text-text-faint">
           /
         </span>
         <span className="text-[#e0705a]">&minus;{deletions}</span>
+      </span>
+
+      <span className="basis-full leading-[1.65] text-text-muted sm:col-start-2 sm:row-start-1 sm:basis-auto">
+        <b className="hidden font-medium text-text sm:inline">{label}</b>
+        <span className="hidden sm:inline"> &mdash; </span>
+        {renderMessage(message)}
       </span>
     </a>
   );

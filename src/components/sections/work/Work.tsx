@@ -6,7 +6,7 @@ export default function Work() {
   return (
     <section id="work">
       <SectionHeader title="Work" link={{ label: 'see all', href: projectsHref, arrow: true }} />
-      <div className="grid gap-3 lg:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard key={project.name} {...project} />
         ))}

@@ -1,11 +1,18 @@
+export type ProjectLinkKind = 'repo' | 'npm' | 'website';
+
+export type ProjectLink = {
+  kind: ProjectLinkKind;
+  href: string;
+};
+
 export type Project = {
   name: string;
-  /** Omit for work that has no public page. */
-  href?: string;
   description: string;
   language: string;
   /** GitHub's linguist color for 'language'. */
   languageColor: string;
+  /** Omit for work that has no public page. */
+  links?: ProjectLink[];
 };
 
 export const projectsHref = 'https://github.com/shubhankarval?tab=repositories';
@@ -27,7 +34,10 @@ export const projects: Project[] = [
   },
   {
     name: 'nextjs-starter-pack',
-    href: 'https://www.npmjs.com/package/nextjs-starter-pack',
+    links: [
+      { kind: 'repo', href: 'https://github.com/shubhankarval/nextjs-starter-pack' },
+      { kind: 'npm', href: 'https://www.npmjs.com/package/nextjs-starter-pack' },
+    ],
     description:
       'Published npm starter \u2014 the integrations every Next.js project needs, zero config.',
     language: 'TypeScript',
@@ -35,7 +45,10 @@ export const projects: Project[] = [
   },
   {
     name: 'sorting visualizer',
-    href: 'https://easy-sorting-visualizer.netlify.app/',
+    links: [
+      { kind: 'repo', href: 'https://github.com/shubhankarval/Sorting-Visualizer' },
+      { kind: 'website', href: 'https://easy-sorting-visualizer.netlify.app/' },
+    ],
     description: 'Shell sort, bubble sort, and friends, animated one pass at a time.',
     language: 'JavaScript',
     languageColor: '#f1e05a',
