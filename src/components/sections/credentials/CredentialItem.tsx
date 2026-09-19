@@ -16,7 +16,7 @@ export default function CredentialItem({ title, detail, year, href }: Readonly<C
               aria-hidden
               size={10}
               weight="bold"
-              className="ml-1 inline align-middle opacity-0 transition-opacity group-hover:opacity-50"
+              className="ml-1 inline align-middle opacity-50 transition-opacity lg:opacity-0 lg:group-hover:opacity-50"
             />
           )}
         </strong>
@@ -28,7 +28,7 @@ export default function CredentialItem({ title, detail, year, href }: Readonly<C
 
   return (
     // The two-per-row divider rules assume an even number of credentials, as the mockup does.
-    <li className="border-b border-line last:border-b-0 lg:border-r lg:nth-[2n]:border-r-0 lg:nth-last-[-n+2]:border-b-0">
+    <li className="border-b border-line last:border-b-0 sm:border-r sm:nth-[2n]:border-r-0 sm:nth-last-[-n+2]:border-b-0">
       {href ? (
         <a
           href={href}
