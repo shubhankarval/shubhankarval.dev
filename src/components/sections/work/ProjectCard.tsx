@@ -4,6 +4,7 @@ import {
   GlobeSimpleIcon,
   PackageIcon,
 } from '@phosphor-icons/react/dist/ssr';
+
 import type { Project, ProjectLinkKind } from '@content/projects';
 
 const linkMeta: Record<ProjectLinkKind, { label: string; Icon: typeof GithubLogoIcon }> = {

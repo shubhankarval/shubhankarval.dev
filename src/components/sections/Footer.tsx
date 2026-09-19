@@ -40,7 +40,12 @@ export default async function Footer() {
           </a>
         </div>
       </div>
-      <footer className="flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 font-mono text-2xs text-text-faint">
+      <footer
+        className="
+          flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-t border-line pt-4 font-mono
+          text-[clamp(0.625rem,0.598rem+0.1351vw,0.6875rem)]/[1.6] text-text-faint
+        "
+      >
         {commit && (
           <a
             href={commit.url}
@@ -49,12 +54,12 @@ export default async function Footer() {
             aria-label={`Latest commit ${commit.sha} on GitHub`}
             className="inline-flex items-center gap-1.25 transition-colors hover:text-accent"
           >
-            <GitCommitIcon aria-hidden size={14} />
+            <GitCommitIcon aria-hidden className="size-[1.3em] shrink-0" />
             {commit.sha}
           </a>
         )}
         <div className="inline-flex items-center gap-1.25">
-          <CopyrightIcon aria-label="Copyright" size={14} />
+          <CopyrightIcon aria-label="Copyright" className="size-[1.3em] shrink-0" />
           <p>
             {currentYear} &middot; {contact.colophon}
           </p>
