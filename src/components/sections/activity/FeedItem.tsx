@@ -6,6 +6,7 @@ import { formatRelativeTime } from '@lib/utils';
 interface FeedItemProps extends RecentCommit {
   /** Timestamp the labels are relative to, so nothing reads the clock mid-render. */
   now: number;
+  className?: string;
 }
 
 /** Backtick spans become <code>, matching how the messages read on GitHub. */
@@ -35,6 +36,7 @@ export default function FeedItem({
   additions,
   deletions,
   now,
+  className = '',
 }: Readonly<FeedItemProps>) {
   const owner = profile.githubUsername;
   const label = repo.startsWith(`${owner}/`) ? repo.slice(owner.length + 1) : repo;
@@ -44,9 +46,10 @@ export default function FeedItem({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="
+      className={`
         flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line py-2 text-xs last:border-b-0 sm:grid sm:grid-cols-[70px_1fr_auto] sm:gap-3
-      "
+        ${className}
+      `}
     >
       <time dateTime={committedAt} className="pt-0.75 font-mono text-2xs text-text-faint">
         {formatRelativeTime(committedAt, now)}
