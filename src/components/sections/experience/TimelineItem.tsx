@@ -8,9 +8,9 @@ import TimelineDot from './TimelineDot';
 const railMaskTop = [
   'first-of-type:before:absolute',
   'first-of-type:before:top-0',
-  'first-of-type:before:left-7.5',
+  'first-of-type:before:left-(--rail-x)',
   'first-of-type:before:z-20',
-  'first-of-type:before:h-5.75',
+  'first-of-type:before:h-(--rail-y)',
   'first-of-type:before:w-px',
   'first-of-type:before:bg-inherit',
   'first-of-type:before:transition-colors',
@@ -19,15 +19,20 @@ const railMaskTop = [
 
 const railMaskBottom = [
   'last-of-type:after:absolute',
-  'last-of-type:after:top-7.5',
+  'last-of-type:after:top-[calc(var(--rail-y)+7px)]',
   'last-of-type:after:bottom-0',
-  'last-of-type:after:left-7.5',
+  'last-of-type:after:left-(--rail-x)',
   'last-of-type:after:z-20',
   'last-of-type:after:w-px',
   'last-of-type:after:bg-inherit',
   'last-of-type:after:transition-colors',
   'last-of-type:after:content-[""]',
 ].join(' ');
+
+// Text clears the rail by the same gap at every width, so the gutter shrinks with it rather than
+// spending a fifth of a narrow card on empty space.
+const row =
+  'relative border-b border-line bg-bg-raised p-[var(--rail-pad)] pl-[calc(var(--rail-x)+1.125rem)] transition-colors last-of-type:border-b-0 hover:bg-bg-sunken';
 
 export default function TimelineItem({
   company,
@@ -38,14 +43,12 @@ export default function TimelineItem({
   first,
 }: Readonly<Role & { first?: boolean }>) {
   return (
-    <li
-      className={`relative border-b border-line bg-bg-raised p-4 pl-12 transition-colors last-of-type:border-b-0 hover:bg-bg-sunken ${railMaskTop} ${railMaskBottom}
-      `}
-    >
+    <li className={`${row} ${railMaskTop} ${railMaskBottom}`}>
       <TimelineDot first={first} />
-      <div className="flex items-baseline justify-between gap-3">
+      {/* The period drops to its own line rather than squeezing the company name on a narrow card. */}
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
         <h3 className="text-base font-medium">{company}</h3>
-        <span className="font-mono text-2xs whitespace-nowrap text-text-faint tabular-nums">
+        <span className="ms-auto font-mono text-2xs whitespace-nowrap text-text-faint tabular-nums">
           {period}
         </span>
       </div>

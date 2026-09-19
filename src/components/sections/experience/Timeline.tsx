@@ -2,13 +2,12 @@
 
 import { useRef, type ReactNode } from 'react';
 import { motion, useReducedMotion, useScroll, useSpring } from 'motion/react';
-import { RAIL_OFFSET } from './rail';
+import { RAIL_OFFSET, RAIL_GEOMETRY } from './rail';
 
 // Spans the list's full height so fill position maps 1:1 onto the reading line, which is what
 // lets the dots resolve their own state against the same anchor. The rows mask the overhang.
-// left-7.5 centres the 1px rail on the dots, which sit at left-6.75 with size-1.75.
 // z-10 lifts it over the rows' opaque backgrounds, which paint after it in tree order.
-const rail = 'absolute inset-y-0 left-7.5 z-10 w-px';
+const rail = 'absolute inset-y-0 left-(--rail-x) z-10 w-px';
 
 export default function Timeline({ children }: Readonly<{ children: ReactNode }>) {
   const ref = useRef<HTMLOListElement>(null);
@@ -20,7 +19,7 @@ export default function Timeline({ children }: Readonly<{ children: ReactNode }>
   return (
     <ol
       ref={ref}
-      className="relative isolate overflow-hidden rounded-lg border border-line bg-bg-raised"
+      className={`relative isolate overflow-hidden rounded-lg border border-line bg-bg-raised ${RAIL_GEOMETRY}`}
     >
       <span aria-hidden className={`${rail} bg-line`} />
       <motion.span
