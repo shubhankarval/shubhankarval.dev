@@ -64,8 +64,9 @@ export default function FeedItem({
       </span>
 
       <span className="basis-full leading-[1.65] text-text-muted sm:col-start-2 sm:row-start-1 sm:basis-auto">
-        <b className="hidden font-medium text-text sm:inline">{label} </b>
-        &mdash; {renderMessage(message)}
+        <b className="hidden font-medium text-text sm:inline">{label}</b>
+        <span className="hidden sm:inline"> &mdash; </span>
+        {renderMessage(message)}
       </span>
     </a>
   );
