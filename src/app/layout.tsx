@@ -19,10 +19,28 @@ const newsreader = Newsreader({
   subsets: ['latin'],
 });
 
+const description =
+  'Full-stack engineer at JPMorgan Chase, building React and TypeScript frontends on Spring Boot and AWS, plus the AI tooling that ships them faster.';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(profile.siteUrl),
   title: profile.name,
-  description:
-    'Full-stack engineer at JPMorgan Chase, building React and TypeScript frontends on Spring Boot and AWS, plus the AI tooling that ships them faster.',
+  description,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'profile',
+    url: '/',
+    siteName: profile.siteRepo,
+    title: profile.name,
+    description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: profile.name,
+    description,
+  },
 };
 
 export default function RootLayout({
