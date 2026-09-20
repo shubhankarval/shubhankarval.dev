@@ -49,7 +49,7 @@ export default function ContributionGrid({ weeks, mobileWeeks }: Readonly<Contri
               <span
                 key={day.date}
                 title={`${day.count} contributions on ${day.date}`}
-                className={`size-2.5 rounded-s ${LEVEL_CLASS[day.level]}`}
+                className={`size-2.5 rounded-xs ${LEVEL_CLASS[day.level]}`}
               />
             ))}
           </div>
