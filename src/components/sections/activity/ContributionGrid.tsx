@@ -21,13 +21,17 @@ function startLabel(date: string): string {
 
 interface ContributionGridProps {
   weeks: ContributionWeek[];
+  mobileWeeks: number;
 }
 
-export default function ContributionGrid({ weeks }: Readonly<ContributionGridProps>) {
-  const total = weeks.reduce(
-    (sum, week) => sum + week.days.reduce((acc, day) => acc + day.count, 0),
-    0
-  );
+function countContributions(weeks: ContributionWeek[]): number {
+  return weeks.reduce((sum, week) => sum + week.days.reduce((acc, day) => acc + day.count, 0), 0);
+}
+
+export default function ContributionGrid({ weeks, mobileWeeks }: Readonly<ContributionGridProps>) {
+  const hiddenCount = Math.max(weeks.length - mobileWeeks, 0);
+  const total = countContributions(weeks);
+  const mobileTotal = countContributions(weeks.slice(hiddenCount));
 
   return (
     <div className="mb-4 pt-1">
@@ -37,21 +41,26 @@ export default function ContributionGrid({ weeks }: Readonly<ContributionGridPro
             key={week.days[0].date}
             // GitHub's window starts mid-week, so a short first column holds the
             // tail of that week and has to sit against the bottom row.
-            className={`flex flex-col gap-0.75 ${index === 0 ? 'justify-end' : ''}`}
+            className={`flex flex-col gap-0.75 ${
+              index === 0 ? 'justify-end' : ''
+            } ${index < hiddenCount ? 'max-sm:hidden' : ''}`}
           >
             {week.days.map((day) => (
               <span
                 key={day.date}
                 title={`${day.count} contributions on ${day.date}`}
-                className={`size-2.5 rounded-xs ${LEVEL_CLASS[day.level]}`}
+                className={`size-2.5 rounded-s ${LEVEL_CLASS[day.level]}`}
               />
             ))}
           </div>
         ))}
       </div>
+
       <div className="mt-3 flex justify-between font-mono text-2xs font-light text-text-faint">
-        <span>{startLabel(weeks[0].days[0].date)}</span>
-        <span>{total.toLocaleString()} contributions</span>
+        <span className="max-sm:hidden">{startLabel(weeks[0].days[0].date)}</span>
+        <span className="sm:hidden">{startLabel(weeks[hiddenCount].days[0].date)}</span>
+        <span className="max-sm:hidden">{total.toLocaleString()} contributions</span>
+        <span className="sm:hidden">{mobileTotal.toLocaleString()} contributions</span>
         <span>now</span>
       </div>
     </div>
