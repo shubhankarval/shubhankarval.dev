@@ -20,12 +20,12 @@ export const personJsonLd = {
   alumniOf: {
     '@type': 'CollegeOrUniversity',
     name: 'University at Buffalo, SUNY',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Philadelphia',
-      addressRegion: 'PA',
-      addressCountry: 'US',
-    },
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Philadelphia',
+    addressRegion: 'PA',
+    addressCountry: 'US',
   },
   knowsAbout: stack.flatMap((group) => group.entries.map((entry) => entry.label)),
   sameAs: profile.links.filter((link) => link.href.startsWith('http')).map((link) => link.href),
