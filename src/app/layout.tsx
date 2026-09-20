@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Newsreader } from 'next/font/google';
+import { profile } from '@content/profile';
 import './globals.css';
 
 const geistSans = Geist({
@@ -18,9 +19,9 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: 'SV',
+  title: profile.name,
   description:
-    'A portfolio website built with Next.js and Tailwind CSS showcasing projects, skills, and experience.',
+    'Full-stack engineer at JPMorgan Chase, building React and TypeScript frontends on Spring Boot and AWS, plus the AI tooling that ships them faster.',
 };
 
 export default function RootLayout({
