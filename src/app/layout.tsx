@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono, Newsreader } from 'next/font/google';
 import { profile } from '@content/profile';
 import { personJsonLd } from '@lib/jsonLd';
@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     title: profile.name,
     description,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#0d0d0f',
 };
 
 export default function RootLayout({
