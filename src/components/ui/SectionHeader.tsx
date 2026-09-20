@@ -1,8 +1,9 @@
+import { type ReactNode } from 'react';
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 interface SectionHeaderProps {
   title: string;
-  meta?: string;
+  meta?: ReactNode;
   link?: {
     label: string;
     href: string;

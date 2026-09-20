@@ -10,6 +10,7 @@ export const profile = {
   name: 'Shubhankar Valimbe',
   githubUsername: 'shubhankarval',
   siteRepo: 'shubhankarval.dev',
+  siteUrl: 'https://shubhankarval.dev',
   ipa: '/ʃʊˈbʱʌŋ.kʌɾ/',
   respelling: 'shoo-BAHNG-kar',
   role: 'Full-stack Engineer',
@@ -26,6 +27,7 @@ export const profile = {
   name: string;
   githubUsername: string;
   siteRepo: string;
+  siteUrl: string;
   ipa: string;
   respelling: string;
   role: string;
