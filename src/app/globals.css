@@ -16,6 +16,7 @@
 
   --grain-opacity: 0.14;
   --vignette-opacity: 0.9;
+  --breathe-opacity: 0.6;
 }
 
 @theme inline {
@@ -109,7 +110,41 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.9'/></svg>");
   }
 
+  /* Earlier in tree order than body::after, so the grain composites over this glow. */
+  html::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: var(--breathe-opacity);
+    /* Tracks the sidebar avatar: container gutter + half the orb, roughly where it settles once sticky. */
+    --light-x: calc(max(1.5rem, (100vw - 66.5rem) / 2 + 1.5rem) + 1.5625rem);
+    --light-y: 3.25rem;
+    background:
+      radial-gradient(
+        12rem 12rem at var(--light-x) var(--light-y),
+        color-mix(in srgb, var(--accent) 27%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        36rem 27rem at calc(var(--light-x) + 26rem) var(--light-y),
+        color-mix(in srgb, var(--accent) 25%, transparent),
+        transparent 72%
+      );
+    filter: blur(40px);
+    transform-origin: var(--light-x) var(--light-y);
+    animation: breathe 9s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html::before {
+      animation: none;
+    }
+  }
+
   @media print {
+    html::before,
     body::before,
     body::after {
       display: none;
@@ -165,6 +200,17 @@
 @layer components {
   .availability-dot {
     animation: availability-pulse 2.4s var(--default-transition-timing-function) infinite;
+  }
+}
+
+@keyframes breathe {
+  from {
+    transform: scale(1);
+    opacity: var(--breathe-opacity);
+  }
+  to {
+    transform: scale(1.18);
+    opacity: calc(var(--breathe-opacity) * 0.75);
   }
 }
 
