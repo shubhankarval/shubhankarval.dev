@@ -77,6 +77,30 @@
     scrollbar-color: var(--line-strong) transparent;
   }
 
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    color: var(--text);
+  }
+
   /* Older WebKit/Blink only; newer engines ignore these once scrollbar-width applies. */
   @supports not (scrollbar-width: thin) {
     ::-webkit-scrollbar {
