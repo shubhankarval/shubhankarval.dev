@@ -15,6 +15,7 @@
   --accent: #6ee7a8;
 
   --grain-opacity: 0.14;
+  --vignette-opacity: 0.9;
 }
 
 @theme inline {
@@ -88,6 +89,16 @@
   }
 
   /* Sits above the sticky sidebar too; nothing else foes past z-20 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 49;
+    pointer-events: none;
+    opacity: var(--vignette-opacity);
+    background: radial-gradient(120% 90% at 50% 40%, transparent 45%, rgb(0 0 0 / 0.55) 100%);
+  }
+
   body::after {
     content: '';
     position: fixed;
@@ -99,6 +110,7 @@
   }
 
   @media print {
+    body::before,
     body::after {
       display: none;
     }
