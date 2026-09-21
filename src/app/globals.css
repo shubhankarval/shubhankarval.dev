@@ -13,6 +13,8 @@
   --text-faint: #7a7a82;
 
   --accent: #6ee7a8;
+
+  --grain-opacity: 0.14;
 }
 
 @theme inline {
@@ -83,6 +85,24 @@
     font-family: var(--font-sans);
     line-height: 1.6;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Last in document order, so it paints over the sticky sidebar too. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    /* Breaks sit between SVG attributes, so the wrapped indentation stays valid markup. */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.9'/></svg>");
+  }
+
+  @media print {
+    body::after {
+      display: none;
+    }
   }
 
   a {
