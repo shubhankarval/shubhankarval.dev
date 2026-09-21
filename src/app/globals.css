@@ -2,11 +2,11 @@
 
 :root {
   --bg: #0d0d0f;
-  --bg-sunken: #131316;
-  --bg-raised: #17171a;
+  --bg-sunken: #1a1a1d;
+  --bg-raised: #1f1f23;
 
-  --line: #26262b;
-  --line-strong: #35353c;
+  --line: #2e2e33;
+  --line-strong: #3d3d44;
 
   --text: #ededf0;
   --text-muted: #9a9aa2;
@@ -74,6 +74,7 @@
 
 @layer base {
   html {
+    background: var(--bg);
     color-scheme: dark;
     /* Inherited by every scroll container. Firefox, Chrome 121+, Safari 18.2+. */
     scrollbar-width: thin;
@@ -81,14 +82,13 @@
   }
 
   body {
-    background: var(--bg);
     color: var(--text);
     font-family: var(--font-sans);
     line-height: 1.6;
     text-rendering: optimizeLegibility;
   }
 
-  /* Sits above the sticky sidebar too; nothing else foes past z-20 */
+  /* Sits above the sticky sidebar too; nothing else goes past z-20 */
   body::before {
     content: '';
     position: fixed;
@@ -103,7 +103,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    z-index: 50;
+    z-index: -1;
     pointer-events: none;
     opacity: var(--grain-opacity);
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.9'/></svg>");
