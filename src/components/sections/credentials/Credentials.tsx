@@ -6,7 +6,7 @@ export default function Credentials() {
   return (
     <section>
       <SectionHeader title="Credentials" meta={`edu \u00B7 cert`} />
-      <ul className="grid overflow-hidden rounded-lg border border-line bg-bg-raised sm:grid-cols-2">
+      <ul className="glass grid overflow-hidden rounded-lg border border-line sm:grid-cols-2">
         {credentials.map((credential) => (
           <CredentialItem key={credential.title} {...credential} />
         ))}

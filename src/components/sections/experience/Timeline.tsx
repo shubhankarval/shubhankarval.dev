@@ -6,7 +6,7 @@ import { RAIL_OFFSET, RAIL_GEOMETRY } from './rail';
 
 // Spans the list's full height so fill position maps 1:1 onto the reading line, which is what
 // lets the dots resolve their own state against the same anchor. The rows mask the overhang.
-// z-10 lifts it over the rows' opaque backgrounds, which paint after it in tree order.
+// z-10 lifts it over the rows, which paint after it in tree order.
 const rail = 'absolute inset-y-0 left-(--rail-x) z-10 w-px';
 
 export default function Timeline({ children }: Readonly<{ children: ReactNode }>) {
@@ -19,7 +19,7 @@ export default function Timeline({ children }: Readonly<{ children: ReactNode }>
   return (
     <ol
       ref={ref}
-      className={`relative isolate overflow-hidden rounded-lg border border-line bg-bg-raised ${RAIL_GEOMETRY}`}
+      className={`glass relative isolate overflow-hidden rounded-lg border border-line ${RAIL_GEOMETRY}`}
     >
       <span aria-hidden className={`${rail} bg-line`} />
       <motion.span

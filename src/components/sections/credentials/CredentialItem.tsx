@@ -36,7 +36,7 @@ export default function CredentialItem({ title, detail, year, href }: Readonly<C
             target: '_blank',
             rel: 'noopener noreferrer',
           })}
-          className={`${row} group transition-colors hover:bg-bg-sunken`}
+          className={`${row} group transition-colors hover:bg-bg-sunken/55`}
         >
           {body}
         </a>
