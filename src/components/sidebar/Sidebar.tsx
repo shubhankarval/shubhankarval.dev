@@ -9,8 +9,8 @@ export default function Sidebar() {
   return (
     <aside
       className="
-        grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:items-end lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:scrollbar-thin
-        lg:grid-cols-1 lg:items-stretch lg:overflow-y-auto lg:pr-2
+        grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:items-end lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:grid-cols-1
+        lg:items-stretch lg:overflow-y-auto lg:pr-2
       "
     >
       <div>
