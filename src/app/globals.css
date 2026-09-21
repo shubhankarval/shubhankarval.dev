@@ -87,7 +87,7 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Last in document order, so it paints over the sticky sidebar too. */
+  /* Sits above the sticky sidebar too; nothing else foes past z-20 */
   body::after {
     content: '';
     position: fixed;
@@ -95,7 +95,6 @@
     z-index: 50;
     pointer-events: none;
     opacity: var(--grain-opacity);
-    /* Breaks sit between SVG attributes, so the wrapped indentation stays valid markup. */
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.9'/></svg>");
   }
 
