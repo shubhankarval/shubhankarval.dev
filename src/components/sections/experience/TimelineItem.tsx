@@ -2,8 +2,7 @@ import type { Role } from '@content/experience';
 import RailSegment from './RailSegment';
 import TimelineDot from './TimelineDot';
 
-// Text clears the rail by the same gap at every width, so the gutter shrinks with it rather than
-// spending a fifth of a narrow card on empty space.
+// Keep the text offset aligned with the rail at every width.
 const row =
   'relative border-b border-line p-(--rail-pad) pl-[calc(var(--rail-x)+1.125rem)] transition-colors last-of-type:border-b-0 hover:bg-bg-sunken/55';
 
@@ -13,14 +12,14 @@ export default function TimelineItem({
   context,
   period,
   summary,
-  first,
-  last,
-}: Readonly<Role & { first?: boolean; last?: boolean }>) {
+  index,
+  count,
+}: Readonly<Role & { index: number; count: number }>) {
   return (
     <li className={row}>
-      <RailSegment first={first} last={last} />
-      <TimelineDot first={first} />
-      {/* The period drops to its own line rather than squeezing the company name on a narrow card. */}
+      <RailSegment index={index} last={index === count - 1} />
+      <TimelineDot first={index === 0} />
+      {/* Allow the period to wrap below the company on narrow cards. */}
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
         <h3 className="text-base font-medium">{company}</h3>
         <span className="ms-auto font-mono text-2xs whitespace-nowrap text-text-faint tabular-nums">

@@ -1,24 +1,15 @@
-/*
- * The viewport line the rail fills to. Dots resolve their own state against the same anchor,
- * so a dot lights exactly as the line sweeps through it without measuring anything.
- *
- * Kept well above centre so the rail reads as empty on load: progress only leaves 0 once
- * the list's top has passed this line, which requires a viewport taller than ~1440px to be
- * true on first paint.
- */
+// Shared viewport anchor for rail segments and dots.
 
 export const RAIL_OFFSET = ['start 30%', 'end 30%'] as const;
 
-/*
- * Rail geometry, declared once on the list and read by the row segments, the dots, and the
- * row padding, so the three can never drift apart.
- * The gutter and padding interpolate across the same 320-1060px window as the type ramp, so the
- * component scales with the text rather than spending a fifth of a narrow card on empty space.
- *
- * y is derived from the row's own leading instead of a frozen pixel offset, which is what keeps
- * the 7px dot centred on the company name as the fluid scale grows it. text-base pins 1lh to that
- * name's line height; every element that reads rail-y inherits it.
- */
+// Shared spring keeps the fill and dots moving at the same rate without overshoot.
+export const RAIL_SPRING = {
+  stiffness: 40,
+  damping: 16,
+  restDelta: 0.001,
+} as const;
+
+// Shared rail geometry keeps the segments, dots, and row padding aligned.
 export const RAIL_GEOMETRY = [
   'text-base',
   '[--rail-pad:clamp(1rem,0.8919rem+0.5405vw,1.25rem)]',
@@ -26,14 +17,7 @@ export const RAIL_GEOMETRY = [
   '[--rail-y:calc(var(--rail-pad)+0.5lh-3.5px)]',
 ].join(' ');
 
-/*
- * A row's slice of the rail. The end rows stop at their own dot rather than running to the card's
- * edge, so the line is bounded by geometry instead of by a cover painted over the overhang: nothing
- * opaque can match a translucent, blurred, hover-tinted surface, so a cover always shows through.
- *
- * Every other row overshoots by its 1px bottom border, which falls outside the padding box "bottom"
- * resolves against and would otherwise nick the line at each row boundary.
- */
+// Build a row's rail slice, stopping the first and last rows at their dots.
 export const railSegment = (first = false, last = false) =>
   [
     'absolute left-(--rail-x) w-px',
