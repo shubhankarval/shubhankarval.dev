@@ -10,8 +10,8 @@
 export const RAIL_OFFSET = ['start 30%', 'end 30%'] as const;
 
 /*
- * Rail geometry, declared once on the list and read by the rail, the dots, the row masks, and the
- * row padding, so the four can never drift apart.
+ * Rail geometry, declared once on the list and read by the row segments, the dots, and the
+ * row padding, so the three can never drift apart.
  * The gutter and padding interpolate across the same 320-1060px window as the type ramp, so the
  * component scales with the text rather than spending a fifth of a narrow card on empty space.
  *
@@ -36,7 +36,7 @@ export const RAIL_GEOMETRY = [
  */
 export const railSegment = (first = false, last = false) =>
   [
-    'absolute left-[--rail-x] w-px',
-    first ? 'top-[--rail-y]' : 'top-0',
+    'absolute left-(--rail-x) w-px',
+    first ? 'top-(--rail-y)' : 'top-0',
     last ? 'bottom-[calc(100%-var(--rail-y)-7px)]' : '-bottom-px',
   ].join(' ');

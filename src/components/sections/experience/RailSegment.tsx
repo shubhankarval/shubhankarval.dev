@@ -11,7 +11,7 @@ interface RailSegmentProps {
 
 /*
  * Each row owns its slice of the rail and resolves it against the same viewport line as the dots,
- * so the fill stays continuous without anything measuring the list! Rows are contiguous, so one
+ * so the fill stays continuous without anything measuring the list: rows are contiguous, so one
  * reads 1 at the exact scroll position the next reads 0.
  *
  * The scroll link is raw rather than sprung - a spring would let a row lag behind the one below it
