@@ -9,8 +9,8 @@ export default function Sidebar() {
   return (
     <aside
       className="
-        grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:items-end lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:scrollbar-thin
-        lg:grid-cols-1 lg:items-stretch lg:overflow-y-auto lg:pr-2
+        grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:items-end lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:grid-cols-1
+        lg:items-stretch lg:overflow-y-auto lg:pr-2
       "
     >
       <div>
@@ -22,7 +22,11 @@ export default function Sidebar() {
           "
         />
 
-        <h1 className="mt-4 font-serif text-[clamp(1.75rem,8.5vw,2.125rem)] leading-[1.05] tracking-[-0.02em] whitespace-nowrap lg:text-3xl">
+        <h1
+          className="
+            mt-4 font-serif text-[clamp(1.75rem,8.5vw,2.125rem)] leading-[1.05] tracking-[-0.02em] whitespace-nowrap [word-spacing:0.1em] lg:text-3xl
+          "
+        >
           {profile.name}
         </h1>
 

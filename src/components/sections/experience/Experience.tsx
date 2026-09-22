@@ -9,7 +9,12 @@ export default function Experience() {
       <SectionHeader title="Experience" meta={experienceRange} />
       <Timeline>
         {experience.map((role, i) => (
-          <TimelineItem key={`${role.company}-${role.period}`} {...role} first={i === 0} />
+          <TimelineItem
+            key={`${role.company}-${role.period}`}
+            {...role}
+            first={i === 0}
+            last={i === experience.length - 1}
+          />
         ))}
       </Timeline>
     </section>

@@ -23,8 +23,7 @@ export default function ProjectCard({
   return (
     <article
       className="
-        flex flex-col gap-2 rounded-lg border border-line bg-bg-raised p-4 transition-[border-color,transform] hover:-translate-y-0.5
-        hover:border-line-strong
+        glass flex flex-col gap-2 rounded-lg border border-line p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-line-strong
       "
     >
       <div className="flex items-center justify-between gap-2">
