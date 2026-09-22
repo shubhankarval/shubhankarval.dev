@@ -20,10 +20,9 @@ export default function Avatar() {
     const px = ((e.clientX - left) / width) * 2 - 1;
     const py = ((e.clientY - top) / height) * 2 - 1;
 
-    // The scale is what actually reads as motion - at this size a few degrees of rotation on a flat gradient circle is nearly invisible on its own.
-    e.currentTarget.style.transform = `perspective(500px) rotateY(${-(
-      px * MAX_TILT_DEG
-    )}deg) rotateX(${-py * MAX_TILT_DEG}deg)`;
+    // The scale is what actually reads as motion - at this size a few degrees of rotation on a
+    // flat gradient circle is nearly invisible on its own.
+    e.currentTarget.style.transform = `perspective(500px) rotateY(${px * MAX_TILT_DEG}deg) rotateX(${-py * MAX_TILT_DEG}deg) scale(1.06)`;
   };
 
   const settle = (e: PointerEvent<HTMLDivElement>) => {
