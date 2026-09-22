@@ -1,5 +1,6 @@
 import { profile } from '@content/profile';
 import { stack } from '@content/stack';
+import Avatar from './Avatar';
 import LocalTime from './LocalTime';
 import NamePronunciation from './NamePronunciation';
 import SideNav from './SideNav';
@@ -14,13 +15,7 @@ export default function Sidebar() {
       "
     >
       <div>
-        <div
-          aria-hidden
-          className="
-            size-10 rounded-full border border-line-strong
-            bg-[radial-gradient(circle_at_30%_25%,var(--accent),transparent_55%),linear-gradient(135deg,var(--bg-sunken),var(--line-strong))] lg:size-12.5
-          "
-        />
+        <Avatar />
 
         <h1
           className="
