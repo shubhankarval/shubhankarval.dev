@@ -25,11 +25,12 @@ const RailProgressContext = createContext<RailProgress>({
   report: () => {},
 });
 
-// Spring one shared progress value so row segments cannot develop gaps.
+// Spring one shared progress value so row segments cannot develop gaps. Rows report
+// from their own mount effects, which run before this one, so provider's seed sees the full sum.
 export default function RailProgressProvider({ children }: Readonly<{ children: ReactNode }>) {
   const rows = useRef<Map<number, number>>(new Map());
   const total = useMotionValue(0);
-  const filled = useSpring(total, RAIL_SPRING);
+  const filled = useSmoothed(total);
 
   const report = useCallback(
     (index: number, progress: number) => {

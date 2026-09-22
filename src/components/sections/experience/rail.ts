@@ -1,4 +1,5 @@
-// Shared viewport anchor for rail segments and dots.
+// Shared viewport anchor for rail segments and dots. Kept above center so rail
+// reads empty on first paint.
 
 export const RAIL_OFFSET = ['start 30%', 'end 30%'] as const;
 

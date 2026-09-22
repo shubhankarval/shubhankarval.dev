@@ -14,6 +14,7 @@ export default function TimelineDot({ first = false }: Readonly<{ first?: boolea
 
   // Track the dot's full size so it fills as the line crosses it.
   const { scrollYProgress } = useScroll({ target: ref, offset: [...RAIL_OFFSET] });
+  // Same spring as the rail, so the dot lights in step with the line rather than ahead of it.
   const opacity = useSmoothed(scrollYProgress);
 
   return (
