@@ -14,8 +14,8 @@
 
   --accent: #6ee7a8;
 
-  --grain-opacity: 0.14;
-  --vignette-opacity: 0.9;
+  --grain-opacity: 0.12;
+  /* --vignette-opacity: 0.9; */
   --breathe-opacity: 0.6;
 
   --bg-grained: #141416;
@@ -96,7 +96,7 @@
   }
 
   /* Sits above the sticky sidebar too; nothing else goes past z-20 */
-  body::before {
+  /* body::before {
     content: '';
     position: fixed;
     inset: 0;
@@ -104,7 +104,7 @@
     pointer-events: none;
     opacity: var(--vignette-opacity);
     background: radial-gradient(120% 90% at 50% 40%, transparent 45%, rgb(0 0 0 / 0.55) 100%);
-  }
+  } */
 
   body::after {
     content: '';
@@ -130,12 +130,12 @@
     background:
       radial-gradient(
         12rem 12rem at var(--light-x) var(--light-y),
-        color-mix(in srgb, var(--accent) 18%, transparent),
+        color-mix(in srgb, var(--accent) 22%, transparent),
         transparent 70%
       ),
       radial-gradient(
         36rem 27rem at calc(var(--light-x) + 26rem) var(--light-y),
-        color-mix(in srgb, var(--accent) 16%, transparent),
+        color-mix(in srgb, var(--accent) 18%, transparent),
         transparent 72%
       );
     filter: blur(40px);
@@ -151,7 +151,7 @@
 
   @media print {
     html::before,
-    body::before,
+    /* body::before, */
     body::after {
       display: none;
     }
