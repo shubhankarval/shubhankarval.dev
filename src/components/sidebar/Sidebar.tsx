@@ -22,7 +22,11 @@ export default function Sidebar() {
           "
         />
 
-        <h1 className="mt-4 font-serif text-[clamp(1.75rem,8.5vw,2.125rem)] leading-[1.05] tracking-[-0.02em] whitespace-nowrap lg:text-3xl">
+        <h1
+          className="
+            mt-4 font-serif text-[clamp(1.75rem,8.5vw,2.125rem)] leading-[1.05] tracking-[-0.02em] whitespace-nowrap [word-spacing:0.1em] lg:text-3xl
+          "
+        >
           {profile.name}
         </h1>
 
