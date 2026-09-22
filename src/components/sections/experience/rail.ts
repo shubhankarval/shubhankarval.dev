@@ -25,3 +25,18 @@ export const RAIL_GEOMETRY = [
   '[--rail-x:clamp(1.25rem,0.9797rem+1.3514vw,1.875rem)]',
   '[--rail-y:calc(var(--rail-pad)+0.5lh-3.5px)]',
 ].join(' ');
+
+/*
+ * A row's slice of the rail. The end rows stop at their own dot rather than running to the card's
+ * edge, so the line is bounded by geometry instead of by a cover painted over the overhang: nothing
+ * opaque can match a translucent, blurred, hover-tinted surface, so a cover always shows through.
+ *
+ * Every other row overshoots by its 1px bottom border, which falls outside the padding box "bottom"
+ * resolves against and would otherwise nick the line at each row boundary.
+ */
+export const railSegment = (first = false, last = false) =>
+  [
+    'absolute left-[--rail-x] w-px',
+    first ? 'top-[--rail-y]' : 'top-0',
+    last ? 'bottom-[calc(100%-var(--rail-y)-7px)]' : '-bottom-px',
+  ].join(' ');
