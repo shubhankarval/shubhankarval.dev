@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Geist, Geist_Mono, Newsreader } from 'next/font/google';
 import { profile } from '@content/profile';
 import { personJsonLd } from '@lib/jsonLd';
@@ -62,6 +63,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         {children}
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            src="/analytics.js"
+            data-website-id="ac8f87ba-1d3c-4881-9075-8d4f2b5aad2a"
+            data-domains="shubhankarval.dev,www.shubhankarval.dev"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );
