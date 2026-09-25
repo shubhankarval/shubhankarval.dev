@@ -22,7 +22,7 @@ const tailCount = tail.reduce((count, group) => count + group.entries.length, 0)
  */
 export default function StackDisclosure() {
   return (
-    <div className="-mt-6 sm:-mt-3 lg:hidden">
+    <div className="-mt-3 lg:hidden">
       <details className="group sm:hidden">
         <summary className="flex cursor-pointer list-none flex-col gap-2 [&::-webkit-details-marker]:hidden">
           <span className="flex items-center gap-2">
