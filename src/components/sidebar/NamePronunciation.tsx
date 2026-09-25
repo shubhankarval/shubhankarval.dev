@@ -24,7 +24,7 @@ export default function NamePronunciation({
 
   const say = () => {
     speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(firstName);
+    const utterance = new SpeechSynthesisUtterance('shoobhunker');
     utterance.rate = 0.85;
     utterance.onend = () => setSpeaking(false);
     utterance.onerror = () => setSpeaking(false);

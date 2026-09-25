@@ -27,7 +27,7 @@ export default function Sidebar() {
 
         <NamePronunciation name={profile.name} ipa={profile.ipa} respelling={profile.respelling} />
 
-        <p className="mt-3.5 text-sm text-text-muted">{profile.role}</p>
+        <p className="mt-3.5 text-text-muted">{profile.role}</p>
 
         <div className="mt-1.5 flex items-baseline justify-between gap-2 border-t border-line pt-2 font-mono text-2xs text-text-faint">
           <span>{profile.location}</span>

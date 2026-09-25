@@ -4,11 +4,16 @@ import type { StackEntry } from '@content/stack';
 interface StackGroupProps {
   label: string;
   entries: StackEntry[];
+  className?: string;
 }
 
-export default function StackGroup({ label, entries }: Readonly<StackGroupProps>) {
+export default function StackGroup({
+  label,
+  entries,
+  className = 'mt-3',
+}: Readonly<StackGroupProps>) {
   return (
-    <div className="mt-3">
+    <div className={className}>
       <span className="font-mono text-2xs text-text-faint">{label}</span>
       <div className="mt-1 flex flex-wrap gap-0.75">
         {entries.map((entry) => (
