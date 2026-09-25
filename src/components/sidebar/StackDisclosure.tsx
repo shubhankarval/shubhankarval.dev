@@ -24,27 +24,29 @@ export default function StackDisclosure() {
   return (
     <div className="-mt-6 sm:-mt-3 lg:hidden">
       <details className="group sm:hidden">
-        <summary className="flex cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden">
-          <span className="font-mono text-2xs tracking-widest text-text-faint uppercase">
-            Stack
+        <summary className="flex cursor-pointer list-none flex-col gap-2 [&::-webkit-details-marker]:hidden">
+          <span className="flex items-center gap-2">
+            <span className="font-mono text-2xs tracking-widest text-text-faint uppercase">
+              Stack
+            </span>
+            <span className="ml-auto flex shrink-0 items-center gap-1 font-mono text-2xs whitespace-nowrap text-text-faint">
+              <span className="group-open:hidden">+{tailCount} more</span>
+              <span className="hidden group-open:inline">less</span>
+              <CaretDownIcon
+                aria-hidden
+                size={11}
+                className="transition-transform group-open:rotate-180"
+              />
+            </span>
           </span>
-          <span className="ml-auto flex shrink-0 items-center gap-1 font-mono text-2xs whitespace-nowrap text-text-faint">
-            <span className="group-open:hidden">+{tailCount} more</span>
-            <span className="hidden group-open:inline">less</span>
-            <CaretDownIcon
-              aria-hidden
-              size={11}
-              className="transition-transform group-open:rotate-180"
-            />
+          <span className="flex flex-wrap gap-0.75">
+            {core.map((entry) => (
+              <Chip key={entry.label} emphasis>
+                {entry.label}
+              </Chip>
+            ))}
           </span>
         </summary>
-        <span className="flex flex-wrap gap-0.75">
-          {core.map((entry) => (
-            <Chip key={entry.label} emphasis>
-              {entry.label}
-            </Chip>
-          ))}
-        </span>
         <div className="mt-2 grid gap-1.25">
           {tail.map((group) => (
             <div key={group.label} className="flex flex-wrap items-center gap-1">
