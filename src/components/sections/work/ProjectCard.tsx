@@ -54,6 +54,9 @@ export default function ProjectCard({
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event="project-link-click"
+                data-umami-event-project={name}
+                data-umami-event-kind={kind}
                 className="group inline-flex items-center gap-1.5 transition-colors hover:text-accent"
               >
                 <Icon aria-hidden size={12} />

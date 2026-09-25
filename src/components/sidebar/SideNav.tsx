@@ -20,12 +20,22 @@ function iconFor(href: string) {
   return FileTextIcon;
 }
 
+// Umami auto-tracks clicks on any element carrying data-umami-event attrs.
+function umamiAttrsFor({ umamiEvent, umamiEventData }: ProfileLink) {
+  const attrs: Record<string, string> = { 'data-umami-event': umamiEvent };
+  for (const [key, value] of Object.entries(umamiEventData ?? {})) {
+    attrs[`data-umami-event-${key}`] = value;
+  }
+  return attrs;
+}
+
 export default function SideNav({ links, className = '' }: Readonly<SideNavProps>) {
   return (
     <nav
       className={`grid grid-cols-2 gap-2 font-mono text-xs lg:flex lg:flex-col lg:gap-px ${className}`}
     >
-      {links.map(({ label, href, primary }) => {
+      {links.map((link) => {
+        const { label, href, primary } = link;
         const external = href.startsWith('http');
         const LinkIcon = iconFor(href);
 
@@ -37,6 +47,7 @@ export default function SideNav({ links, className = '' }: Readonly<SideNavProps
               target: '_blank',
               rel: 'noopener noreferrer',
             })}
+            {...umamiAttrsFor(link)}
             className={`
               group flex min-h-10.5 items-center gap-2 rounded-lg border px-3 transition-colors lg:-mx-2 lg:min-h-0 lg:justify-between lg:gap-0
               lg:rounded-sm lg:border-0 lg:bg-transparent lg:px-2 lg:py-1.25 lg:hover:bg-bg-sunken
