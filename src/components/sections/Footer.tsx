@@ -31,6 +31,10 @@ export default async function Footer() {
           </p>
           <a
             href={`mailto:${contact.email}`}
+            data-umami-event="contact-click"
+            data-umami-event-channel="email"
+            data-umami-event-source="footer-cta"
+
             className="
               flex min-h-11 items-center justify-center self-center rounded-lg bg-text px-4 font-mono text-xs text-bg transition-[transform,opacity]
               hover:-translate-y-px hover:opacity-90 @xl:inline-flex @xl:min-h-0 @xl:shrink-0 @xl:rounded-sm @xl:px-3.5 @xl:py-1.75

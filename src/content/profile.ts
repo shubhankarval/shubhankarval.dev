@@ -4,6 +4,8 @@ export type ProfileLink = {
   label: string;
   href: string;
   primary?: boolean;
+  umamiEvent: string;
+  umamiEventData?: Record<string, string>;
 };
 
 export const profile = {
@@ -18,10 +20,25 @@ export const profile = {
   timeZone: 'America/New_York',
   availability: 'open to new roles',
   links: [
-    { label: 'resume.pdf', href: '/resume.pdf', primary: true },
-    { label: 'github', href: 'https://github.com/shubhankarval' },
-    { label: 'linkedin', href: 'https://www.linkedin.com/in/shubhankar-valimbe/' },
-    { label: 'email', href: `mailto:${contact.email}` },
+    { label: 'resume.pdf', href: '/resume.pdf', primary: true, umamiEvent: 'resume-download' },
+    {
+      label: 'github',
+      href: 'https://github.com/shubhankarval',
+      umamiEvent: 'social-click',
+      umamiEventData: { channel: 'github' },
+    },
+    {
+      label: 'linkedin',
+      href: 'https://www.linkedin.com/in/shubhankar-valimbe/',
+      umamiEvent: 'social-click',
+      umamiEventData: { channel: 'linkedin' },
+    },
+    {
+      label: 'email',
+      href: `mailto:${contact.email}`,
+      umamiEvent: 'contact-click',
+      umamiEventData: { channel: 'email', source: 'sidebar' },
+    },
   ],
 } satisfies {
   name: string;
