@@ -19,7 +19,7 @@
   --breathe-opacity: 0.6;
 
   --bg-grained: #141416;
-  --glass: color-mix(in srgb, var(--bg-raised) 50%, transparent);
+  --glass: color-mix(in srgb, var(--bg-raised) 70%, transparent);
   --glass-solid: color-mix(in srgb, var(--bg-raised) 50%, var(--bg-grained));
 }
 
@@ -132,12 +132,12 @@
     background:
       radial-gradient(
         12rem 12rem at var(--light-x) var(--light-y),
-        color-mix(in srgb, var(--accent) 22%, transparent),
+        color-mix(in srgb, var(--accent) 27%, transparent),
         transparent 70%
       ),
       radial-gradient(
         36rem 27rem at calc(var(--light-x) + 26rem) var(--light-y),
-        color-mix(in srgb, var(--accent) 18%, transparent),
+        color-mix(in srgb, var(--accent) 25%, transparent),
         transparent 72%
       );
     filter: blur(40px);
