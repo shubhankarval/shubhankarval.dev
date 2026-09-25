@@ -47,7 +47,7 @@ export default function StackDisclosure() {
             ))}
           </span>
         </summary>
-        <div className="mt-2 grid gap-1.25">
+        <div className="mt-3 grid gap-3">
           {tail.map((group) => (
             <div key={group.label} className="flex flex-wrap items-center gap-1">
               <span className="font-mono text-2xs text-text-faint">{group.label}</span>
