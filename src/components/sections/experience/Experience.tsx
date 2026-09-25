@@ -12,8 +12,8 @@ export default function Experience() {
           <TimelineItem
             key={`${role.company}-${role.period}`}
             {...role}
-            first={i === 0}
-            last={i === experience.length - 1}
+            index={i}
+            count={experience.length}
           />
         ))}
       </Timeline>

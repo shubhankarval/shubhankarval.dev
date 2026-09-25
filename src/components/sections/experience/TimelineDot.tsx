@@ -2,6 +2,8 @@
 
 import { useRef } from 'react';
 import { motion, useScroll } from 'motion/react';
+
+import { useSmoothed } from './RailProgress';
 import { RAIL_OFFSET } from './rail';
 
 const dot =
@@ -10,15 +12,16 @@ const dot =
 export default function TimelineDot({ first = false }: Readonly<{ first?: boolean }>) {
   const ref = useRef<HTMLSpanElement>(null);
 
-  // Spanning the dot itself makes the 7px it occupies the whole transition, so it fills as the
-  // line crosses it rather than switching on.
+  // Track the dot's full size so it fills as the line crosses it.
   const { scrollYProgress } = useScroll({ target: ref, offset: [...RAIL_OFFSET] });
+  // Same spring as the rail, so the dot lights in step with the line rather than ahead of it.
+  const opacity = useSmoothed(scrollYProgress);
 
   return (
     <span ref={ref} aria-hidden className={dot}>
-      {/* Crossfading an overlay avoids interpolating between two CSS custom properties. */}
+      {/* Crossfade an overlay instead of interpolating CSS custom properties. */}
       <motion.span
-        style={{ opacity: first ? 1 : scrollYProgress }}
+        style={{ opacity: first ? 1 : opacity }}
         className="absolute -inset-px rounded-full bg-accent"
       />
     </span>

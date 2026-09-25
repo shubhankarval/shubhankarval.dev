@@ -1,5 +1,6 @@
 import { profile } from '@content/profile';
 import { stack } from '@content/stack';
+import Avatar from './Avatar';
 import LocalTime from './LocalTime';
 import NamePronunciation from './NamePronunciation';
 import SideNav from './SideNav';
@@ -9,18 +10,12 @@ export default function Sidebar() {
   return (
     <aside
       className="
-        grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_18.5rem] md:items-end lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:grid-cols-1
-        lg:items-stretch lg:overflow-y-auto lg:pr-2
+        -mt-1 -ml-1 grid items-start gap-6 pt-1 pl-1 md:grid-cols-[minmax(0,1fr)_18.5rem] md:items-end lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)]
+        lg:grid-cols-1 lg:items-stretch lg:overflow-y-auto lg:pr-2
       "
     >
       <div>
-        <div
-          aria-hidden
-          className="
-            size-10 rounded-full border border-line-strong
-            bg-[radial-gradient(circle_at_30%_25%,var(--accent),transparent_55%),linear-gradient(135deg,var(--bg-sunken),var(--line-strong))] lg:size-12.5
-          "
-        />
+        <Avatar />
 
         <h1
           className="

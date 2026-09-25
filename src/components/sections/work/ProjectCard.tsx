@@ -23,13 +23,21 @@ export default function ProjectCard({
   return (
     <article
       className="
-        glass flex flex-col gap-2 rounded-lg border border-line p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-line-strong
+        glass group/card flex flex-col gap-2 rounded-lg border border-line p-4 transition-[border-color,transform] hover:-translate-y-0.5
+        hover:border-line-strong
       "
     >
       <div className="flex items-center justify-between gap-2">
         <h3 className="text-base font-medium lowercase">{name}</h3>
         <span className="inline-flex items-center gap-1.25 font-mono text-2xs text-text-faint">
-          <i aria-hidden className="size-1.75 rounded-full" style={{ background: languageColor }} />
+          <i
+            aria-hidden
+            className="
+              relative size-1.75 rounded-full after:absolute after:inset-0 after:rounded-full after:bg-inherit after:content-['']
+              motion-safe:group-hover/card:after:animate-ripple
+            "
+            style={{ background: languageColor }}
+          />
           {language}
         </span>
       </div>
