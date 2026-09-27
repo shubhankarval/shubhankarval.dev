@@ -9,7 +9,12 @@ export type ProfileLink = {
 };
 
 const profileLinks: ProfileLink[] = [
-  { label: 'resume.pdf', href: '/resume.pdf', primary: true, umamiEvent: 'resume-download' },
+  {
+    label: 'resume.pdf',
+    href: 'https://drive.google.com/file/d/1te9a21jxWiHfO0qiHbBs3pazYNLGaIvx/view?usp=sharing',
+    primary: true,
+    umamiEvent: 'resume-download',
+  },
   {
     label: 'github',
     href: 'https://github.com/shubhankarval',
